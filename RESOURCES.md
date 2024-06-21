@@ -54,6 +54,19 @@
 - [Zig Crash Course](https://ikrima.dev/dev-notes/zig/zig-crash-course/), May 2024.
 - [Zig Guide](https://zig.guide/) &ndash; Get up to speed with [Zig] quickly.
 
+
+## <span id="videos">Videos</span> [**&#x25B4;**](#top)
+
+- [Zig Master](https://www.youtube.com/playlist?list=PLtB7CL7EG7pDKdSBA_AlNYrEsISOHBOQL) by Dude the Builder :
+  - [Zig Master: Struct Layout](https://www.youtube.com/watch?v=sfvgUVAXZ4I), June 2024.
+  - [Zig Master: Slices](https://www.youtube.com/watch?v=whjDH-LKA2s), May 2024.
+
+- [Zig in Depth](https://www.youtube.com/playlist?list=PLtB7CL7EG7pCw7Xy1SQC53Gl8pI7aDg9t) by Dude the Builder :
+  - [Zig in Depth: anytype](https://www.youtube.com/watch?v=-MKcxj3SlI0), November 2023.
+  - [Zig in Depth: comptime Part II](https://www.youtube.com/watch?v=K4vsmDeK1pU), November 2023.
+  - [Zig in Depth: comptime Part I](https://www.youtube.com/watch?v=7D__mR1nA2c), November 2023.
+  - [Zig in Depth: Blocks and switch](https://www.youtube.com/watch?v=M3FSzLFIN30), October 2023.
+  
 <!--
 ## <span id="footnotes">Footnotes</span>
 
