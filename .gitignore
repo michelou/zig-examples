@@ -49,3 +49,4 @@ workingsets.xml
 *_LOCAL.txt
 *_LOCAL/
 .settings/
+.zig-cache/

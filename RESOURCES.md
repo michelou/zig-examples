@@ -13,10 +13,16 @@
 
 ## <span id="blogs">Blogs</span> [**&#x25B4;**](#top)
 
+- [Dayvster Blog posts](https://dayvster.com/blog/tag/zig/) :
+  - [Builing Blocks of Zig: Unions](https://dayvster.com/blog/building-blocks-of-zig-unions/), June 2024.
+  - [Building Block of Zig: Slices](https://dayvster.com/blog/building-blocks-of-zig-slices/), June 2024.
+  - [Zig is The Next Big Programming Language](https://dayvster.com/blog/zig-is-the-next-big-language/), May 2024.
+  - [Zig Allocators Explained](https://dayvster.com/blog/zig-allocators-explained/), May 2024.
 - [Karl Seguin's](https://www.openmymind.net/) Blog posts :
   - [Leveraging Zig's Allocators](https://www.openmymind.net/Leveraging-Zigs-Allocators/), June 2024.
   - [Zig: Freeing resources referenced in multiple threads](https://www.openmymind.net/Zig-Freeing-Resources-Referenced-In-Multiple-Threads/), May 2024.
   - [Writing a task scheduler in Zig](https://www.openmymind.net/Writing-a-Task-Scheduler-in-Zig/), May 2024.
+  - [Error Handling in Zig](https://www.aolium.com/karlseguin/4013ac14-2457-479b-e59b-e603c04673c8), August 2023.
 - [Andrew Kelley's](https://andrewkelley.me/) Blog posts :
   - [Zig's New CLI Progress Bar Explained](https://andrewkelley.me/post/zig-new-cli-progress-bar-explained.html), May 2024.
 - [Introduction to Zig, a Potential Heir to C][blog_eastman] by David Eastman, January 2024.
@@ -32,11 +38,16 @@
   - [Building Blocks Of Zig: slices](https://dayvster.com/blog/building-blocks-of-zig-slices/)
   - [Zig Allocators Explained](https://dayvster.com/blog/zig-allocators-explained/)
 - [Zig Interfaces for the Uninitiated, an update][blog_vounckx] by Kilian Vounckx, February 2022.
+- [Big Integers in Zig](https://tiehu.is/blog/zig2) by Marc Tiehuis, May 2018.
+- [Iterative Replacement of C with Zig](https://tiehu.is/blog/zig1) by Marc Tiehuis, July 2017.
 
 ## <span id="news">News</span> [**&#x25B4;**](#top)
 
 - [Zig News](https://ziglang.org/news/) &ndash; the official Zig news channel.
 - [Zig NEWS](https://zig.news/) &ndash; a community of [Zig] programmers.
+  - [zig build explained - part 3](https://zig.news/xq/zig-build-explained-part-3-1ima), November 2021.
+  - [zig build explained - part 2](https://zig.news/xq/zig-build-explained-part-2-1850), August 2021.
+  - [zig build explained - part 1](https://zig.news/xq/zig-build-explained-part-1-59lf), July 2021.
 - [Ziggit](https://ziggit.dev/) &ndash; a forum for [Zig] programmers.
 
 ## <span id="projects">Projects</span>
@@ -50,7 +61,9 @@
 
 ## <span id="tutorials">Tutorials</span>
 
+- [Learn Zig Programming Language](https://anylearn.ai/guide/51356f6b-e267-453d-be31-37efc233e882).
 - [Learning Zig](https://www.openmymind.net/learning_zig/).
+- [Zig Cookbook](https://cookbook.ziglang.cc/intro.html).
 - [Zig Crash Course](https://ikrima.dev/dev-notes/zig/zig-crash-course/), May 2024.
 - [Zig Guide](https://zig.guide/) &ndash; Get up to speed with [Zig] quickly.
 
@@ -85,7 +98,7 @@ version = "12"
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/June 2024* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/July 2024* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->

@@ -56,6 +56,13 @@ if not exist "%ZIG_HOME%\zig.exe" (
     goto :eof
 )
 set "_ZIG_CMD=%ZIG_HOME%\zig.exe"
+
+set "SDL2_HOME=c:\opt\SDL2"
+if not exist "%SDL2_HOME%\include\sdl.h" (
+    echo %_ERROR_LABEL% SDL2 installation not found 1>&2
+    set _EXITCODE=1
+    goto :eof
+)
 goto :eof
 
 :env_colors
@@ -184,6 +191,7 @@ goto :eof
 
 :clean
 call :rmdir "%_TARGET_DIR%"
+call :rmdir "%_ROOT_DIR%.zig-cache"
 goto :eof
 
 @rem input parameter: %1=directory path
@@ -222,6 +230,8 @@ if %__N%==0 (
 ) else ( set __N_FILES=%__N% Zig source files
 )
 set __ZIG_OPTS=-femit-bin="%_EXE_FILE%" -target x86_64-windows
+set __ZIG_OPTS=%__ZIG_OPTS% -I"%SDL2_HOME%\include" -I"%ZIG_HOME%\lib\libc\include\any-windows-any"
+set __ZIG_OPTS=%__ZIG_OPTS% -L"%SDL2_HOME%\lib\x64" -lSDL2
 
 if %_DEBUG%==1 ( echo %_DEBUG_LABEL% "%_ZIG_CMD%" build-exe %__ZIG_OPTS% %__SOURCE_FILES% 1>&2
 ) else if %_VERBOSE%==1 ( echo Compile %__N_FILES% to directory "!_TARGET_DIR:%_ROOT_DIR%=!" 1>&2

@@ -1,4 +1,4 @@
-# <span id="top">Zig examples</span> <span style="size:30%;"><a href="../README.md">⬆</a></span>
+# <span id="top">Zig examples</span> <span style="font-size:90%;">[⬆](../README.md#top)</span>
 
 <table style="font-family:Helvetica,Arial;line-height:1.6;">
   <tr>
@@ -9,6 +9,19 @@
 </table>
 
 ## <span id="hello">`hello` Example</span>
+
+This project has the following directory structure :
+
+<pre style="font-size:80%;">
+<b>&gt; <a href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/tree" rel="external">tree</a> /f /a . | <a href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/findstr" rel="external">findstr</a> /v /b [A-Z]</b>
+|   <a href="./hello/build.bat">build.bat</a>
+|   <a href="./hello/build.sh">build.sh</a>
+|   <a href="./hello/Makefile">Makefile</a>
+\---<b>src</b>
+    \---<b>main</b>
+        \---<b>zig</b>
+                <a href="./hello/src/main/zig/hello.zig">hello.zig</a>
+</pre>
 
 Command [**`build.bat run`**](./hello/build.bat) generates and runs executable `hello.exe` :
 
@@ -38,9 +51,26 @@ Hello, world!
 > linkver:              14.0
 > </pre>
 
+<!--=======================================================================-->
+
+## <span id="hello-gamedev">`hello-gamedev` Example</span> [**&#x25B4;**](#top)
+
+This project has the following directory structure :
+
+<pre style="font-size:80%;">
+<b>&gt; <a href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/tree" rel="external">tree</a> /f /a . | <a href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/findstr" rel="exernal">findstr</a> /v /b [A-Z]</b>
+|   <a href="./hello-gamedev/00download.txt">00download.txt</a>
+|   <a href="./hello-gamedev/build.bat">build.bat</a>
+|   <a href="./hello-gamedev/build.zig">build.zig</a>
+\---<b>src</b>
+    \---<b>main</b>
+        \---<b>zig</b>
+                <a href="./hello-gamedev/src/main/zig/main.zig">main.zig</a>
+</pre>
+
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/June 2024* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/July 2024* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
