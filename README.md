@@ -20,7 +20,7 @@ This project depends on two external software for the **Microsoft Windows** plat
 Optionally one may also install the following software:
 
 - [ConEmu 2023][conemu_downloads] ([*release notes*][conemu_relnotes])
-- [SDL 3][sdl_downloads] ([*release notes*][sdl_relnotes])
+- [SDL 2][sdl_downloads] ([*release notes*][sdl_relnotes])
 - [Visual Studio Code 1.90][vscode_downloads] ([*release notes*][vscode_relnotes])
 
 > **:mag_right:** Git for Windows provides a BASH emulation used to run [**`git`**][git_docs] from the command line (as well as over 250 Unix commands like [**`awk`**][man1_awk], [**`diff`**][man1_diff], [**`file`**][man1_file], [**`grep`**][man1_grep], [**`more`**][man1_more], [**`mv`**][man1_mv], [**`rmdir`**][man1_rmdir], [**`sed`**][man1_sed] and [**`wc`**][man1_wc]).
@@ -76,7 +76,7 @@ We execute command [**`setenv.bat`**](setenv.bat) once to setup our development 
 <pre style="font-size:80%;">
 <b>&gt; <a href="setenv.bat">setenv</a></b>
 Tool versions:
-   zig 0.13.0, make 3.81,
+   zig 0.13.0, make 3.81, SDL2 2.30.5.0,
    git 2.45.2, diff 3.10, bash 5.2.26(1)
 </pre>
 
@@ -92,7 +92,7 @@ Command [**`setenv.bat`**](setenv.bat) with option **`-verbose`** displays addit
 <pre style="font-size:80%;">
 <b>&gt; <a href="setenv.bat">setenv</a> -verbose</b>
 Tool versions:
-   zig 0.13.0, make 3.81,
+   zig 0.13.0, make 3.81, SDL2 2.30.5.0,
    git 2.45.2, diff 3.10, bash 5.2.26(1)
 Tool paths:
    C:\opt\zig-0.13.0\zig.exe
@@ -104,6 +104,7 @@ Environment variables:
    "GIT_HOME=C:\opt\Git"
    "MAKE_HOME=C:\opt\make-3.81"
    "MSYS_HOME=C:\opt\msys64"
+   "SDL2_HOME=C:\opt\sdl2"
    "ZIG_HOME=C:\opt\zig-0.13.0"
 Path associations:
    H:\: => %USERPROFILE%\workspace-perso\zig-examples

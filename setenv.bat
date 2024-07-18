@@ -35,6 +35,9 @@ if not %_EXITCODE%==0 goto end
 call :msys
 if not %_EXITCODE%==0 goto end
 
+call :sdl2
+if not %_EXITCODE%==0 goto end
+
 call :zig
 if not %_EXITCODE%==0 goto end
 
@@ -323,6 +326,34 @@ if not exist "%_MSYS_HOME%\mingw64\bin\gcc.exe" (
 )
 goto :eof
 
+@rem output_parameter: _SDL2_HOME
+:sdl2
+set _SDL2_HOME=
+if defined SDL2_HOME (
+    set "_SDL2_HOME=%SDL2_HOME%"
+    if %_DEBUG%==1 echo %_DEBUG_LABEL% Using environment variable SDL2_HOME 1>&2
+) else (
+    set __PATH=C:\opt
+    if exist "!__PATH!\sdl2\" ( set "_SDL2_HOME=!__PATH!\sdl2"
+    ) else (
+        for /f %%f in ('dir /ad /b "!__PATH!\sdl2*" 2^>NUL') do set "_SDL2_HOME=!__PATH!\%%f"
+        if not defined _SDL2_HOME (
+            set "__PATH=%ProgramFiles%"
+            for /f "delims=" %%f in ('dir /ad /b "!__PATH!\sdl2*" 2^>NUL') do set "_SDL2_HOME=!__PATH!\%%f"
+        )
+    )
+    if defined _SDL2_HOME (
+        if %_DEBUG%==1 echo %_DEBUG_LABEL% Using default SDL2 installation directory "!_SDL2_HOME!" 1>&2
+    )
+)
+if not exist "%_SDL2_HOME%\lib\x64\SDL2.dll" (
+    echo %_WARNING_LABEL% SDL2 dynamic library not found ^("%_SDL2_HOME%"^) 1>&2
+    @rem set _EXITCODE=1
+    set _SDL2_HOME=
+    goto :eof
+)
+goto :eof
+
 @rem output parameters: _ZIG_HOME
 :zig
 set _ZIG_HOME=
@@ -419,6 +450,12 @@ if %ERRORLEVEL%==0 (
     for /f "tokens=1,2,*" %%i in ('"%CMAKE_HOME%\bin\cmake.exe" --version ^| findstr version') do set "__VERSIONS_LINE1=%__VERSIONS_LINE1% cmake %%k,"
     set __WHERE_ARGS=%__WHERE_ARGS% "%CMAKE_HOME%\bin:cmake.exe"
 )
+where /q "%SDL2_HOME%\lib\x64:SDL2.dll"
+if %ERRORLEVEL%==0 if exist "%_ROOT_DIR%bin\pelook.exe" (
+    for /f "tokens=1,2,3,*" %%i in ('call "%_ROOT_DIR%bin\pelook.exe" -h "%SDL2_HOME%\lib\x64\SDL2.dll" ^| findstr version') do (
+        set "__VERSIONS_LINE1=%__VERSIONS_LINE1% SDL2 %%k,"
+    )
+)
 where /q "%GIT_HOME%\bin:git.exe"
 if %ERRORLEVEL%==0 (
     for /f "tokens=1,2,*" %%i in ('"%GIT_HOME%\bin\git.exe" --version') do (
@@ -455,6 +492,7 @@ if %__VERBOSE%==1 (
     if defined GIT_HOME echo    "GIT_HOME=%GIT_HOME%" 1>&2
     if defined MAKE_HOME echo    "MAKE_HOME=%MAKE_HOME%" 1>&2
     if defined MSYS_HOME echo    "MSYS_HOME=%MSYS_HOME%" 1>&2
+    if defined SDL2_HOME echo    "SDL2_HOME=%SDL2_HOME%" 1>&2
     if defined ZIG_HOME echo    "ZIG_HOME=%ZIG_HOME%" 1>&2
     echo Path associations: 1>&2
     for /f "delims=" %%i in ('subst') do (
@@ -475,6 +513,7 @@ endlocal & (
         if not defined GIT_HOME set "GIT_HOME=%_GIT_HOME%"
         if not defined MAKE_HOME set "MAKE_HOME=%_MAKE_HOME%"
         if not defined MSYS_HOME set "MSYS_HOME=%_MSYS_HOME%"
+        if not defined SDL2_HOME set "SDL2_HOME=%_SDL2_HOME%"
         if not defined ZIG_HOME set "ZIG_HOME=%_ZIG_HOME%"
         @rem We prepend %_GIT_HOME%\bin to hide C:\Windows\System32\bash.exe
         set "PATH=%GIT_HOME%\bin;%PATH%%_MAKE_PATH%%_GIT_PATH%;%~dp0bin"
