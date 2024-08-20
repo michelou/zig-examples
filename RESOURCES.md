@@ -1,4 +1,4 @@
-# <span id="top">Zig Resources</span> <span style="font-size:90%;">[↩](../README.md#top)</span>
+# <span id="top">Zig Resources</span> <span style="font-size:90%;">[↩](./README.md#top)</span>
 
 <table style="font-family:Helvetica,Arial;line-height:1.6;">
   <tr>
