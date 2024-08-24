@@ -33,10 +33,15 @@ error() {
     echo "$ERROR_LABEL $1" 1>&2
 }
 
-# use variable EXITCODE
+# use variables EXITCODE, TIMER_START
 cleanup() {
     [[ $1 =~ ^[0-1]$ ]] && EXITCODE=$1
 
+    if [[ $TIMER -eq 1 ]]; then
+        local TIMER_END=$(date +'%s')
+        local duration=$((TIMER_END - TIMER_START))
+        echo "Total execution time: $(date -d @$duration +'%H:%M:%S')" 1>&2
+    fi
     debug "EXITCODE=$EXITCODE"
     exit $EXITCODE
 }
@@ -65,9 +70,10 @@ args() {
             ;;
         esac
     done
-    debug "Options    : PROJECT_CONFIG=$PROJECT_CONFIG TOOLSET=$TOOLSET VERBOSE=$VERBOSE"
+    debug "Options    : PROJECT_CONFIG=$PROJECT_CONFIG TIMER=$TIMER TOOLSET=$TOOLSET VERBOSE=$VERBOSE"
     debug "Subcommands: CLEAN=$CLEAN COMPILE=$COMPILE HELP=$HELP RUN=$RUN"
     debug "Variables  : GIT_HOME=$GIT_HOME"
+    debug "Variables  : SDL2_HOME=$SDL2_HOME"
     debug "Variables  : ZIG_HOME=$ZIG_HOME"
 }
 
@@ -97,11 +103,12 @@ clean() {
         rm -rf "$TARGET_DIR"
         [[ $? -eq 0 ]] || ( EXITCODE=1 && return 0 )
     fi
-    if [[ -d "$ROOT_DIR/zig-out" ]]; then
-        rm -rf "$ROOT_DIR/zig-out"
-        [[ $? -eq 0 ]] || ( EXITCODE=1 && return 0 )
-    fi
     if [[ -d "$ROOT_DIR/.zig-cache" ]]; then
+        if [[ $DEBUG -eq 1 ]]; then
+            debug "Delete directory \"$ROOT_DIR/.zig-cache\""
+        elif [[ $VERBOSE -eq 1 ]]; then
+            echo "Delete directory \".zig-cache\"" 1>&2
+        fi
         rm -rf "$ROOT_DIR/.zig-cache"
         [[ $? -eq 0 ]] || ( EXITCODE=1 && return 0 )
     fi
@@ -110,6 +117,9 @@ clean() {
 compile() {
     [[ -d "$TARGET_DIR" ]] || mkdir -p "$TARGET_DIR"
     local zig_opts="-femit-bin=\"$(mixed_path $TARGET)\" -target x86_64-windows"
+    ## we add the SDL2 dependency options
+    zig_opts="$zig_opts -I\"$SDL2_HOME\include\" -I\"$(mixed_path $ZIG_HOME)/lib/libc/include/any-windows-any\""
+    zig_opts="$zig_opts -L\"$SDL2_LIB_DIR\" -lSDL2"
 
     local source_files=
     local n=0
@@ -131,6 +141,16 @@ compile() {
     eval "\"$ZIG_CMD\" build-exe $zig_opts $source_files"
     if [[ $? -ne 0 ]]; then
         error "Failed to compile $n_files to directory \"${TARGET_DIR/$ROOT_DIR\//}\""
+        cleanup 1
+    fi
+    if [[ $DEBUG -eq 1 ]]; then
+        debug "cp \"$(mixed_path $SDL2_DLL_FILE)\" \"$TARGET_DIR\""
+    elif [[ $VERBOSE -eq 1 ]]; then
+        echo "Copy SDL2 dynamic library to directory \"${TARGET_DIR/$ROOT_DIR\//}\"" 1>&2
+    fi
+    eval "cp \"$(mixed_path $SDL2_DLL_FILE)\" \"$TARGET_DIR\""
+    if [[ $? -ne 0 ]]; then
+        error "Failed to copy SDL2 dynamic library to directory \"${TARGET_DIR/$ROOT_DIR\//}\""
         cleanup 1
     fi
 }
@@ -193,15 +213,15 @@ mingw=0
 msys=0
 darwin=0
 case "$(uname -s)" in
-  CYGWIN*) cygwin=1 ;;
-  MINGW*)  mingw=1 ;;
-  MSYS*)   msys=1 ;;
-  Darwin*) darwin=1      
+    CYGWIN*) cygwin=1 ;;
+    MINGW*)  mingw=1 ;;
+    MSYS*)   msys=1 ;;
+    Darwin*) darwin=1      
 esac
 unset CYGPATH_CMD
 PSEP=":"
 TARGET_EXT=
-if [[ $(($cygwin + $mingw + $msys)) -gt 0 ]]; then
+if [[ $(($cygwin || $mingw || $msys)) -gt 0 ]]; then
     CYGPATH_CMD="$(which cygpath 2>/dev/null)"
 	PSEP=";"
     TARGET_EXT=".exe"
@@ -215,6 +235,17 @@ else
 fi
 PROJECT_NAME="$(basename $ROOT_DIR)"
 TARGET="$(mixed_path $TARGET_DIR)/$PROJECT_NAME$TARGET_EXT"
+
+case "$(arch)" in
+    x86_64) arch=x64 ;;
+    *)      arch=x86
+esac
+SDL2_LIB_DIR="$SDL2_HOME\\lib\\$arch"
+if [[ ! -f "$(mixed_path $SDL2_LIB_DIR)/SDL2.dll" ]]; then
+    error "SDL2 dynamic library not found"
+    cleanup 1
+fi
+SDL2_DLL_FILE="$SDL2_LIB_DIR\SDL2.dll"
 
 args "$@"
 [[ $EXITCODE -eq 0 ]] || cleanup 1

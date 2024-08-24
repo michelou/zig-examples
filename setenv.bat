@@ -25,6 +25,7 @@ if %_HELP%==1 (
 
 set _GIT_PATH=
 set _MAKE_PATH=
+set _ZIG_PATH=
 
 call :cmake
 if not %_EXITCODE%==0 goto end
@@ -372,7 +373,7 @@ if defined __ZIG_CMD (
     set __PATH=C:\opt
     if exist "!__PATH!\zig\" ( set "_ZIG_HOME=!__PATH!\zig"
     ) else (
-        for /f %%f in ('dir /ad /b "!__PATH!\zig*" 2^>NUL') do set "_ZIG_HOME=!__PATH!\%%f"
+        for /f "delims=" %%f in ('dir /ad /b "!__PATH!\zig*" 2^>NUL') do set "_ZIG_HOME=!__PATH!\%%f"
         if not defined _ZIG_HOME (
             set "__PATH=%ProgramFiles%"
             for /f "delims=" %%f in ('dir /ad /b "!__PATH!\zig*" 2^>NUL') do set "_ZIG_HOME=!__PATH!\%%f"
@@ -387,6 +388,7 @@ if not exist "%_ZIG_HOME%\zig.exe" (
     set _EXITCODE=1
     goto :eof
 )
+set "_ZIG_PATH=;%_ZIG_HOME%"
 goto :eof
 
 @rem output parameters: _GIT_HOME, _GIT_PATH
@@ -517,7 +519,7 @@ endlocal & (
         if not defined SDL2_HOME set "SDL2_HOME=%_SDL2_HOME%"
         if not defined ZIG_HOME set "ZIG_HOME=%_ZIG_HOME%"
         @rem We prepend %_GIT_HOME%\bin to hide C:\Windows\System32\bash.exe
-        set "PATH=%GIT_HOME%\bin;%PATH%%_MAKE_PATH%%_GIT_PATH%;%~dp0bin"
+        set "PATH=%GIT_HOME%\bin;%PATH%%_MAKE_PATH%%_GIT_PATH%%_ZIG_PATH%;%~dp0bin"
         call :print_env %_VERBOSE%
         if not "%CD:~0,2%"=="%_DRIVE_NAME%" (
             if %_DEBUG%==1 echo %_DEBUG_LABEL% cd /d %_DRIVE_NAME% 1>&2

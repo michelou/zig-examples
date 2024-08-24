@@ -21,18 +21,20 @@ Optionally one may also install the following software:
 
 - [ConEmu 2023][conemu_downloads] ([*release notes*][conemu_relnotes])
 - [SDL 2][sdl_downloads] ([*release notes*][sdl_relnotes])
-- [Visual Studio Code 1.91][vscode_downloads] ([*release notes*][vscode_relnotes])
+- [Visual Studio Code 1.92][vscode_downloads] ([*release notes*][vscode_relnotes])
+- [Zig 0.14 DEV][zig_downloads]
 
 > **:mag_right:** Git for Windows provides a BASH emulation used to run [**`git`**][git_docs] from the command line (as well as over 250 Unix commands like [**`awk`**][man1_awk], [**`diff`**][man1_diff], [**`file`**][man1_file], [**`grep`**][man1_grep], [**`more`**][man1_more], [**`mv`**][man1_mv], [**`rmdir`**][man1_rmdir], [**`sed`**][man1_sed] and [**`wc`**][man1_wc]).
 
 For instance our development environment looks as follows (*August 2024*) <sup id="anchor_01">[1](#footnote_01)</sup>:
 
 <pre style="font-size:80%;">
-C:\opt\ConEmu\       <i>( 26 MB)</i>
-C:\opt\Git\          <i>(367 MB)</i>
-C:\opt\SDL2\         <i>(  5 MB)</i>
-C:\opt\zig-0.13.0\   <i>(3§2 MB)</i>
-C:\opt\VSCode\       <i>(341 MB)</i>
+C:\opt\ConEmu\           <i>( 26 MB)</i>
+C:\opt\Git\              <i>(367 MB)</i>
+C:\opt\SDL2\             <i>(  9 MB)</i>
+C:\opt\zig-0.13.0\       <i>(293 MB)</i>
+C:\opt\zig-0.14.0-dev\   <i>(269 MB)</i>
+C:\opt\VSCode\           <i>(341 MB)</i>
 </pre>
 
 > **&#9755;** ***Installation policy***<br/>
@@ -123,9 +125,8 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 <pre style="font-size:80%;">
 <a href="https://github.com/Maximus5/ConEmu/releases/tag/v23.07.24" rel="external">ConEmuPack.230724.7z</a>              <i>(  5 MB)</i>
 <a href="https://git-scm.com/download/win" rel="external">PortableGit-2.46.0-64-bit.7z.exe</a>  <i>( 41 MB)</i>
-<a href="https://github.com/libsdl-org/SDL/releases" rel="external">SDL2-2.30.5.zip</a>                   <i>(  8 MB)</i>
-<a href="https://github.com/libsdl-org/SDL/releases" rel="external">SDL2-2.30.5-win32-x86.zip</a>         <i>(  1 MB)</i>
-<a href="https://code.visualstudio.com/Download#" rel="external">VSCode-win32-x64-1.91.1.zip</a>       <i>(131 MB)</i>
+<a href="https://github.com/libsdl-org/SDL/releases" rel="external">SDL2-devel-2.30.6-VC.zip </a>         <i>(  8 MB)</i>
+<a href="https://code.visualstudio.com/Download#" rel="external">VSCode-win32-x64-1.92.1.zip</a>       <i>(131 MB)</i>
 <a href="https://ziglang.org/download/" rel="external">zig-windows-x86_64-0.13.0.zip</a>     <i>( 75 MB)</i>
 </pre>
 </dd></dl>

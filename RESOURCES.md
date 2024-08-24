@@ -58,6 +58,8 @@
 ## <span id="tools">Tools</span>
 
 - [Zap](https://zigzap.org/) &ndash; a blazingly fast and robust HTTP server (based on [facil.io](https://facil.io/)).
+- [`zig-clap`](https://github.com/Hejsil/zig-clap) &ndash; a comand line argument parsing library.
+- [`zigwin32`](https://github.com/marlersoft/zigwin32) &ndash; Zig bindings for the Win32 API.
 
 ## <span id="tutorials">Tutorials</span>
 

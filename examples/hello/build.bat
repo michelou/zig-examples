@@ -184,6 +184,7 @@ goto :eof
 
 :clean
 call :rmdir "%_TARGET_DIR%"
+call :rmdir "%_ROOT_DIR%.zig-cache"
 goto :eof
 
 @rem input parameter: %1=directory path
@@ -323,11 +324,11 @@ if not exist "%_EXE_FILE%" (
     goto :eof
 )
 if %_DEBUG%==1 ( echo %_DEBUG_LABEL% "%_EXE_FILE%" 1>&2
-) else if %_VERBOSE%==1 ( echo Execute Zig program "%_MAIN_NAME%" 1>&2
+) else if %_VERBOSE%==1 ( echo Execute Zig program "!_EXE_FILE:%_ROOT_DIR%=!" 1>&2
 )
 "%_EXE_FILE%"
 if not %ERRORLEVEL%==0 (
-    echo %_ERROR_LABEL% Failed to execute Zig program "%_MAIN_NAME%" 1>&2
+    echo %_ERROR_LABEL% Failed to execute Zig program "!_EXE_FILE:%_ROOT_DIR%=!" 1>&2
     set _EXITCODE=1
     goto :eof
 )

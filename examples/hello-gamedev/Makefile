@@ -29,8 +29,6 @@ $(TARGET): $(SOURCES)
 
 clean:
 	"$(RM)" -rf "$(TARGET_DIR)"
-	"$(RM)" -rf "zig-out"
-	"$(RM)" -rf ".zig-cache"
 
 run: build
 	$(TARGET)
@@ -62,4 +60,4 @@ $(TARGET_DOCS): $(SOURCES)
 .PHONY: all build clean doc help run
 
 .SUFFIXES:
-.SUFFIXES: .exe .html .obj .pdb .zig
+.SUFFIXES: .exe .html .obj .zig

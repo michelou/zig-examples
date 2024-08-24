@@ -16,6 +16,7 @@ This project has the following directory structure :
 <b>&gt; <a href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/tree" rel="external">tree</a> /f /a . | <a href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/findstr" rel="external">findstr</a> /v /b [A-Z]</b>
 |   <a href="./hello/build.bat">build.bat</a>
 |   <a href="./hello/build.sh">build.sh</a>
+|   <a href="./hello/build.zig">build.zig</a>
 |   <a href="./hello/Makefile">Makefile</a>
 \---<b>src</b>
     \---<b>main</b>
@@ -23,12 +24,19 @@ This project has the following directory structure :
                 <a href="./hello/src/main/zig/hello.zig">hello.zig</a>
 </pre>
 
-Command [**`build.bat run`**](./hello/build.bat) generates and runs executable `hello.exe` :
+Command [**`zig`**](https://)` build` reads the project file [`build.zig`](./hello/build.zig) to generate the Zig program `zig-out\bin\hello.exe` :
+
+<pre style="font-size:80%;">
+<b>&gt; <a href="">zig</a> build & zig-out\bin\hello.exe</b>
+Hello, world!
+</pre>
+
+Command [**`build.bat`**](./hello/build.bat)`-verbose run` generates and runs executable `target\hello.exe` :
 
 <pre style="font-size:80%;">
 <b>&gt; <a href="./hello/build.bat">build</a> -verbose run</b>
 Compile 1 Zig source file to directory "target"
-Execute Zig program "hello"
+Execute Zig program "target\hello.exe"
 Hello, world!
 </pre>
 
@@ -61,12 +69,27 @@ This project has the following directory structure :
 <b>&gt; <a href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/tree" rel="external">tree</a> /f /a . | <a href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/findstr" rel="exernal">findstr</a> /v /b [A-Z]</b>
 |   <a href="./hello-gamedev/00download.txt">00download.txt</a>
 |   <a href="./hello-gamedev/build.bat">build.bat</a>
+|   <a href="./hello-gamedev/build.sh">build.sh</a>
 |   <a href="./hello-gamedev/build.zig">build.zig</a>
+|   <a href="./hello-gamedev/Makefile">Makefile</a>
 \---<b>src</b>
     \---<b>main</b>
         \---<b>zig</b>
                 <a href="./hello-gamedev/src/main/zig/main.zig">main.zig</a>
 </pre>
+
+Command [**`build.bat`**](./hello-gamedev/build.bat)`-verbose clean run` generates and executes the Zig program `target\hello.exe`:
+
+<pre style="font-size:80%;">
+<b>&gt; <a href="./hello-gamedev/build.bat">build</a> -verbose clean run</b>
+Delete directory "target"
+Delete directory ".zig-cache"
+Compile 1 Zig source file to directory "target"
+Copy SDL2 dynamic library to directory "target"
+Execute Zig program "target\hello.exe"
+</pre>
+
+<p><img src="../docs/images/hello-gamedev.png" width="80%"></p>
 
 ***
 

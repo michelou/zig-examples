@@ -57,12 +57,16 @@ if not exist "%ZIG_HOME%\zig.exe" (
 )
 set "_ZIG_CMD=%ZIG_HOME%\zig.exe"
 
-set "SDL2_HOME=c:\opt\SDL2"
-if not exist "%SDL2_HOME%\include\sdl.h" (
+if %PROCESSOR_ARCHITECTURE%==AMD64 ( set __ARCH=x64
+) else ( set __ARCH=x86
+)
+if not exist "%SDL2_HOME%\lib\%__ARCH%\SDL2.dll" (
     echo %_ERROR_LABEL% SDL2 installation not found 1>&2
     set _EXITCODE=1
     goto :eof
 )
+set "_SDL2_LIB_DIR=%SDL2_HOME%\lib\%__ARCH%"
+set "_SDL2_DLL_FILE=%_SDL2_LIB_DIR%\SDL2.dll"
 goto :eof
 
 :env_colors
@@ -153,13 +157,14 @@ if "%__ARG:~0,1%"=="-" (
 shift
 goto args_loop
 :args_done
-set _STDERR_REDIRECT=2^>NUL
-if %_DEBUG%==1 set _STDERR_REDIRECT=
+set _STDOUT_REDIRECT=1^>NUL
+if %_DEBUG%==1 set _STDOUT_REDIRECT=
 
 if %_DEBUG%==1 (
     echo %_DEBUG_LABEL% Options    : _VERBOSE=%_VERBOSE% 1>&2
     echo %_DEBUG_LABEL% Subcommands: _COMMANDS=%_COMMANDS% 1>&2
 	echo %_DEBUG_LABEL% Variables  : "GIT_HOME=%GIT_HOME%" 1>&2
+	echo %_DEBUG_LABEL% Variables  : "SDL2_HOME=%SDL2_HOME%" 1>&2
 	echo %_DEBUG_LABEL% Variables  : "ZIG_HOME=%ZIG_HOME%" 1>&2
 )
 goto :eof
@@ -191,6 +196,7 @@ goto :eof
 
 :clean
 call :rmdir "%_TARGET_DIR%"
+call :rmdir "%_ROOT_DIR%zig-out"
 call :rmdir "%_ROOT_DIR%.zig-cache"
 goto :eof
 
@@ -230,8 +236,9 @@ if %__N%==0 (
 ) else ( set __N_FILES=%__N% Zig source files
 )
 set __ZIG_OPTS=-femit-bin="%_EXE_FILE%" -target x86_64-windows
+@rem we add the SDL2 dependency options
 set __ZIG_OPTS=%__ZIG_OPTS% -I"%SDL2_HOME%\include" -I"%ZIG_HOME%\lib\libc\include\any-windows-any"
-set __ZIG_OPTS=%__ZIG_OPTS% -L"%SDL2_HOME%\lib\x64" -lSDL2
+set __ZIG_OPTS=%__ZIG_OPTS% -L"%_SDL2_LIB_DIR%" -lSDL2
 
 if %_DEBUG%==1 ( echo %_DEBUG_LABEL% "%_ZIG_CMD%" build-exe %__ZIG_OPTS% %__SOURCE_FILES% 1>&2
 ) else if %_VERBOSE%==1 ( echo Compile %__N_FILES% to directory "!_TARGET_DIR:%_ROOT_DIR%=!" 1>&2
@@ -239,6 +246,15 @@ if %_DEBUG%==1 ( echo %_DEBUG_LABEL% "%_ZIG_CMD%" build-exe %__ZIG_OPTS% %__SOUR
 call "%_ZIG_CMD%" build-exe %__ZIG_OPTS% %__SOURCE_FILES%
 if not %ERRORLEVEL%==0 (
     echo %_ERROR_LABEL% Failed to compile %__N_FILES% to directory "!_TARGET_DIR:%_ROOT_DIR%=!" 1>&2
+    set _EXITCODE=1
+    goto :eof
+)
+if %_DEBUG%==1 ( echo %_DEBUG_LABEL% copy "%_SDL2_DLL_FILE%" "%_TARGET_DIR%\" 1>&2
+) else if %_VERBOSE%==1 ( echo Copy SDL2 dynamic library to directory "!_TARGET_DIR:%_ROOT_DIR%=!" 1>&2
+)
+copy "%_SDL2_DLL_FILE%" "%_TARGET_DIR%\" %_STDOUT_REDIRECT%
+if not %ERRORLEVEL%==0 (
+    echo %_ERROR_LABEL% Failed to copy SDL2 dynamic library to directory "!_TARGET_DIR:%_ROOT_DIR%=!" 1>&2
     set _EXITCODE=1
     goto :eof
 )
@@ -333,11 +349,11 @@ if not exist "%_EXE_FILE%" (
     goto :eof
 )
 if %_DEBUG%==1 ( echo %_DEBUG_LABEL% "%_EXE_FILE%" 1>&2
-) else if %_VERBOSE%==1 ( echo Execute Zig program "%_MAIN_NAME%" 1>&2
+) else if %_VERBOSE%==1 ( echo Execute Zig program "!_EXE_FILE:%_ROOT_DIR%=!" 1>&2
 )
 "%_EXE_FILE%"
 if not %ERRORLEVEL%==0 (
-    echo %_ERROR_LABEL% Failed to execute Zig program "%_MAIN_NAME%" 1>&2
+    echo %_ERROR_LABEL% Failed to execute Zig program "!_EXE_FILE:%_ROOT_DIR%=!" 1>&2
     set _EXITCODE=1
     goto :eof
 )
