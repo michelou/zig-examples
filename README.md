@@ -78,7 +78,7 @@ We execute command [**`setenv.bat`**](setenv.bat) once to setup our development 
 <pre style="font-size:80%;">
 <b>&gt; <a href="setenv.bat">setenv</a></b>
 Tool versions:
-   zig 0.13.0, make 3.81, SDL2 2.30.5.0,
+   zig 0.13.0, make 3.81, SDL2 2.30.6.0,
    git 2.46.0, diff 3.10, bash 5.2.26(1)
 </pre>
 
@@ -94,7 +94,7 @@ Command [**`setenv.bat`**](setenv.bat) with option **`-verbose`** displays addit
 <pre style="font-size:80%;">
 <b>&gt; <a href="setenv.bat">setenv</a> -verbose</b>
 Tool versions:
-   zig 0.13.0, make 3.81, SDL2 2.30.5.0,
+   zig 0.13.0, make 3.81, SDL2 2.30.6.0,
    git 2.46.0, diff 3.10, bash 5.2.26(1)
 Tool paths:
    C:\opt\zig-0.13.0\zig.exe
@@ -172,7 +172,7 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 [nodejs_examples]: https://github.com/michelou/nodejs-examples#top
 [rust_examples]: https://github.com/michelou/rust-examples#top
 [sdl_downloads]: https://www.libsdl.org/
-[sdl_relnotes]: https://github.com/libsdl-org/SDL/releases/tag/release-2.30.5
+[sdl_relnotes]: https://github.com/libsdl-org/SDL/releases/tag/release-2.30.6
 [scala3_examples]: https://github.com/michelou/dotty-examples#top
 [spark_examples]: https://github.com/michelou/spark-examples#top
 [spring_examples]: https://github.com/michelou/spring-examples#top
