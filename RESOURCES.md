@@ -13,10 +13,10 @@
 
 ## <span id="blogs">Blogs</span> [**&#x25B4;**](#top)
 
-- [Hashimoto's Blog about Zig](https://mitchellh.com/zig) :
+- [Hashimoto's](https://mitchellh.com/zig) Blog posts :
   - [Conditionally Disabling Code with Comptime in Zig](https://mitchellh.com/writing/zig-comptime-conditional-disable), September 2024.
   - [Zig Build System Internals](https://mitchellh.com/zig/build-internals), February 2022.
-- [Dayvster Blog posts](https://dayvster.com/blog/tag/zig/) :
+- [Dayvster](https://dayvster.com/blog/tag/zig/) Blog posts :
   - [Builing Blocks of Zig: Unions](https://dayvster.com/blog/building-blocks-of-zig-unions/), June 2024.
   - [Building Block of Zig: Slices](https://dayvster.com/blog/building-blocks-of-zig-slices/), June 2024.
   - [Zig is The Next Big Programming Language](https://dayvster.com/blog/zig-is-the-next-big-language/), May 2024.
@@ -28,6 +28,9 @@
   - [Error Handling in Zig](https://www.aolium.com/karlseguin/4013ac14-2457-479b-e59b-e603c04673c8), August 2023.
 - [Andrew Kelley's](https://andrewkelley.me/) Blog posts :
   - [Zig's New CLI Progress Bar Explained](https://andrewkelley.me/post/zig-new-cli-progress-bar-explained.html), May 2024.
+- [Bahlo's](https://arne.me/blog) Blog posts :
+  - [Writing an SDK in Zig (Part 1)](https://arne.me/blog/writing-an-sdk-in-zig-part-1), May 2024.
+  - [Thoughts on Zig](https://arne.me/blog/thoughts-on-zig), May 2024.
 - [Introduction to Zig, a Potential Heir to C][blog_eastman] by David Eastman, January 2024.
 - [After a day of programming in Zig](https://blog.lohr.dev/after-a-day-of-programming-in-zig) by Michael Lohr, December 2023.
 - [Broch Blog &ndash; Programming](https://www.brochweb.com/blog/category/programming/) :
@@ -62,6 +65,7 @@
 
 - [Zap](https://zigzap.org/) &ndash; a blazingly fast and robust HTTP server (based on [facil.io](https://facil.io/)).
 - [`zig-clap`](https://github.com/Hejsil/zig-clap) &ndash; a comand line argument parsing library.
+- [`zigup`](https://github.com/marler8997/zigup) &ndash; download and manage [Zig] compilers.
 - [`zigwin32`](https://github.com/marlersoft/zigwin32) &ndash; Zig bindings for the Win32 API.
 
 ## <span id="tutorials">Tutorials</span>
@@ -71,7 +75,7 @@
 - [Zig Cookbook](https://cookbook.ziglang.cc/intro.html).
 - [Zig Crash Course](https://ikrima.dev/dev-notes/zig/zig-crash-course/), May 2024.
 - [Zig Guide](https://zig.guide/) &ndash; Get up to speed with [Zig] quickly.
-
+- [ZigVS](https://marketplace.visualstudio.com/items?itemName=LuckystarStudio.ZigVS) &ndash; [Zig] language support for Visual Studio.
 
 ## <span id="videos">Videos</span> [**&#x25B4;**](#top)
 
