@@ -13,6 +13,9 @@
 
 ## <span id="blogs">Blogs</span> [**&#x25B4;**](#top)
 
+- [Hashimoto's Blog about Zig](https://mitchellh.com/zig) :
+  - [Conditionally Disabling Code with Comptime in Zig](https://mitchellh.com/writing/zig-comptime-conditional-disable), September 2024.
+  - [Zig Build System Internals](https://mitchellh.com/zig/build-internals), February 2022.
 - [Dayvster Blog posts](https://dayvster.com/blog/tag/zig/) :
   - [Builing Blocks of Zig: Unions](https://dayvster.com/blog/building-blocks-of-zig-unions/), June 2024.
   - [Building Block of Zig: Slices](https://dayvster.com/blog/building-blocks-of-zig-slices/), June 2024.
@@ -100,7 +103,7 @@ version = "12"
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/August 2024* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/October 2024* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
