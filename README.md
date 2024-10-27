@@ -132,7 +132,7 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 <a href="https://github.com/Maximus5/ConEmu/releases/tag/v23.07.24" rel="external">ConEmuPack.230724.7z</a>                              <i>(  5 MB)</i>
 <a href="https://git-scm.com/download/win" rel="external">PortableGit-2.47.0-64-bit.7z.exe</a>                  <i>( 41 MB)</i>
 <a href="https://github.com/libsdl-org/SDL/releases" rel="external">SDL2-devel-2.30.8-VC.zip </a>                         <i>(  6 MB)</i>
-<a href="https://github.com/libsdl-org/SDL/releases/tag/preview-3.1.3" rel="external">SDL2-devel-3.1.3-VC.zip </a>                          <i>( 13 MB)</i>
+<a href="https://github.com/libsdl-org/SDL/releases/tag/preview-3.1.3" rel="external">SDL3-devel-3.1.3-VC.zip </a>                          <i>( 13 MB)</i>
 <a href="https://code.visualstudio.com/Download#" rel="external">VSCode-win32-x64-1.94.2.zip</a>                       <i>(131 MB)</i>
 <a href="https://ziglang.org/download/" rel="external">zig-windows-x86_64-0.13.0.zip</a>                     <i>( 75 MB)</i>
 <a href="">zig-windows-x86_64-0.14.0-dev.2051+b1361f237.zip</a>  <i>( 80 MB)</i>
