@@ -44,7 +44,7 @@ set _WARNING_LABEL=%_STRONG_FG_YELLOW%Warning%_RESET%:
 
 set "_SOURCE_DIR=%_ROOT_DIR%src"
 set "_SOURCE_MAIN_DIR=%_SOURCE_DIR%\main\zig"
-set "_TARGET_DIR=%_ROOT_DIR%target"
+set "_TARGET_DIR=%_ROOT_DIR%build"
 set "_TARGET_DOCS_DIR=%_TARGET_DIR%\docs"
 
 set _MAIN_NAME=hello
@@ -117,6 +117,7 @@ goto :eof
 :args
 set _COMMANDS=
 set _HELP=0
+set _SDL=2
 set _VERBOSE=0
 set __N=0
 :args_loop
@@ -152,13 +153,27 @@ if "%__ARG:~0,1%"=="-" (
 shift
 goto args_loop
 :args_done
-set _STDERR_REDIRECT=2^>NUL
-if %_DEBUG%==1 set _STDERR_REDIRECT=
+set _STDOUT_REDIRECT=1^>NUL
+if %_DEBUG%==1 set _STDOUT_REDIRECT=
+
+if %PROCESSOR_ARCHITECTURE%==AMD64 ( set __ARCH=x64
+) else ( set __ARCH=x86
+)
+set _SDL_LIB_NAME=SDL3
+if not exist "%SDL3_HOME%\lib\%__ARCH%\%_SDL_LIB_NAME%.dll" (
+    echo %_ERROR_LABEL% %_SDL_LIB_NAME% installation not found 1>&2
+    set _EXITCODE=1
+    goto :eof
+)
+set "_SDL_INC_DIR=%SDL3_HOME%\include"
+set "_SDL_LIB_DIR=%SDL3_HOME%\lib\%__ARCH%"
+set "_SDL_DLL_FILE=%_SDL_LIB_DIR%\%_SDL_LIB_NAME%.dll"
 
 if %_DEBUG%==1 (
     echo %_DEBUG_LABEL% Options    : _VERBOSE=%_VERBOSE% 1>&2
     echo %_DEBUG_LABEL% Subcommands: _COMMANDS=%_COMMANDS% 1>&2
 	echo %_DEBUG_LABEL% Variables  : "GIT_HOME=%GIT_HOME%" 1>&2
+	echo %_DEBUG_LABEL% Variables  : "SDL3_HOME=%SDL3_HOME%" 1>&2
 	echo %_DEBUG_LABEL% Variables  : "ZIG_HOME=%ZIG_HOME%" 1>&2
 )
 goto :eof
@@ -190,6 +205,7 @@ goto :eof
 
 :clean
 call :rmdir "%_TARGET_DIR%"
+call :rmdir "%_ROOT_DIR%zig-out"
 call :rmdir "%_ROOT_DIR%.zig-cache"
 goto :eof
 
@@ -229,6 +245,9 @@ if %__N%==0 (
 ) else ( set __N_FILES=%__N% Zig source files
 )
 set __ZIG_OPTS=-femit-bin="%_EXE_FILE%" -target x86_64-windows
+@rem we add the SDL3 dependency options
+set __ZIG_OPTS=%__ZIG_OPTS% -I"%_SDL_INC_DIR%" -I"%_SDL_INC_DIR%\%_SDL_LIB_NAME%" -I"%ZIG_HOME%\lib\libc\include\any-windows-any"
+set __ZIG_OPTS=%__ZIG_OPTS% -L"%_SDL_LIB_DIR%" -l%_SDL_LIB_NAME%
 
 if %_DEBUG%==1 ( echo %_DEBUG_LABEL% "%_ZIG_CMD%" build-exe %__ZIG_OPTS% %__SOURCE_FILES% 1>&2
 ) else if %_VERBOSE%==1 ( echo Compile %__N_FILES% to directory "!_TARGET_DIR:%_ROOT_DIR%=!" 1>&2
@@ -236,6 +255,15 @@ if %_DEBUG%==1 ( echo %_DEBUG_LABEL% "%_ZIG_CMD%" build-exe %__ZIG_OPTS% %__SOUR
 call "%_ZIG_CMD%" build-exe %__ZIG_OPTS% %__SOURCE_FILES%
 if not %ERRORLEVEL%==0 (
     echo %_ERROR_LABEL% Failed to compile %__N_FILES% to directory "!_TARGET_DIR:%_ROOT_DIR%=!" 1>&2
+    set _EXITCODE=1
+    goto :eof
+)
+if %_DEBUG%==1 ( echo %_DEBUG_LABEL% copy "%_SDL_DLL_FILE%" "%_TARGET_DIR%\" 1>&2
+) else if %_VERBOSE%==1 ( echo Copy %_SDL_LIB_NAME% dynamic library to directory "!_TARGET_DIR:%_ROOT_DIR%=!" 1>&2
+)
+copy "%_SDL_DLL_FILE%" "%_TARGET_DIR%\" %_STDOUT_REDIRECT%
+if not %ERRORLEVEL%==0 (
+    echo %_ERROR_LABEL% Failed to copy %_SDL_LIB_NAME% dynamic library to directory "!_TARGET_DIR:%_ROOT_DIR%=!" 1>&2
     set _EXITCODE=1
     goto :eof
 )

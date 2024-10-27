@@ -8,13 +8,13 @@
   </tr>
 </table>
 
-[Ada][ada_examples], [Akka][akka_examples], [C++][cpp_examples], [COBOL][cobol_examples], [Dart][dart_examples], [Deno][deno_examples], [Docker][docker_examples], [Flix][flix_examples], [Golang][golang_examples], [GraalVM][graalvm_examples], [Haskell][haskell_examples], [Kafka][kafka_examples], [Kotlin][kotlin_examples], [LLVM][llvm_examples], [Modula-2][m2_examples], [Node.js][nodejs_examples], [Rust][rust_examples], [Scala 3][scala3_examples], [Spark][spark_examples], [Spring][spring_examples], [TruffleSqueak][trufflesqueak_examples] and [WiX Toolset][wix_examples] are other topics we are continuously monitoring.
+[Ada][ada_examples], [Akka][akka_examples], [C++][cpp_examples], [COBOL][cobol_examples], [Dafny][dafny_examples], [Dart][dart_examples], [Deno][deno_examples], [Docker][docker_examples], [Flix][flix_examples], [Golang][golang_examples], [GraalVM][graalvm_examples], [Haskell][haskell_examples], [Kafka][kafka_examples], [Kotlin][kotlin_examples], [LLVM][llvm_examples], [Modula-2][m2_examples], [Node.js][nodejs_examples], [Rust][rust_examples], [Scala 3][scala3_examples], [Spark][spark_examples], [Spring][spring_examples], [TruffleSqueak][trufflesqueak_examples] and [WiX Toolset][wix_examples] are other topics we are continuously monitoring.
 
 ## <span id="proj_deps">Project dependencies</span>
 
 This project depends on two external software for the **Microsoft Windows** platform:
 
-- [Git 2.46][git_downloads] ([*release notes*][git_relnotes])
+- [Git 2.47][git_downloads] ([*release notes*][git_relnotes])
 - [Zig 0.13][zig_downloads] ([*release notes*][zig_relnotes])
 
 Optionally one may also install the following software:
@@ -79,7 +79,7 @@ We execute command [**`setenv.bat`**](setenv.bat) once to setup our development 
 <b>&gt; <a href="setenv.bat">setenv</a></b>
 Tool versions:
    zig 0.13.0, make 3.81, SDL2 2.30.8.0,
-   git 2.46.2, diff 3.10, bash 5.2.37(1)
+   git 2.47.0, diff 3.10, bash 5.2.37(1)
 </pre>
 
 ## <span id="usage_examples">Usage examples</span> [**&#x25B4;**](#top)
@@ -95,7 +95,7 @@ Command [**`setenv.bat`**](setenv.bat) with option **`-verbose`** displays addit
 <b>&gt; <a href="setenv.bat">setenv</a> -verbose</b>
 Tool versions:
    zig 0.13.0, make 3.81, SDL2 2.30.8.0,
-   git 2.46.2, diff 3.10, bash 5.2.37(1)
+   git 2.47.0, diff 3.10, bash 5.2.37(1)
 Tool paths:
    C:\opt\zig-0.13.0\zig.exe
    C:\opt\make-3.81\bin\make.exe
@@ -124,9 +124,9 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 <dd>
 <pre style="font-size:80%;">
 <a href="https://github.com/Maximus5/ConEmu/releases/tag/v23.07.24" rel="external">ConEmuPack.230724.7z</a>              <i>(  5 MB)</i>
-<a href="https://git-scm.com/download/win" rel="external">PortableGit-2.46.2-64-bit.7z.exe</a>  <i>( 41 MB)</i>
+<a href="https://git-scm.com/download/win" rel="external">PortableGit-2.47.0-64-bit.7z.exe</a>  <i>( 41 MB)</i>
 <a href="https://github.com/libsdl-org/SDL/releases" rel="external">SDL2-devel-2.30.8-VC.zip </a>         <i>(  8 MB)</i>
-<a href="https://code.visualstudio.com/Download#" rel="external">VSCode-win32-x64-1.93.1.zip</a>       <i>(131 MB)</i>
+<a href="https://code.visualstudio.com/Download#" rel="external">VSCode-win32-x64-1.94.2.zip</a>       <i>(131 MB)</i>
 <a href="https://ziglang.org/download/" rel="external">zig-windows-x86_64-0.13.0.zip</a>     <i>( 75 MB)</i>
 </pre>
 </dd></dl>

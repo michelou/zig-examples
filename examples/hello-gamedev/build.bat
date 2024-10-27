@@ -44,7 +44,7 @@ set _WARNING_LABEL=%_STRONG_FG_YELLOW%Warning%_RESET%:
 
 set "_SOURCE_DIR=%_ROOT_DIR%src"
 set "_SOURCE_MAIN_DIR=%_SOURCE_DIR%\main\zig"
-set "_TARGET_DIR=%_ROOT_DIR%target"
+set "_TARGET_DIR=%_ROOT_DIR%build"
 set "_TARGET_DOCS_DIR=%_TARGET_DIR%\docs"
 
 set _MAIN_NAME=hello
@@ -60,13 +60,21 @@ set "_ZIG_CMD=%ZIG_HOME%\zig.exe"
 if %PROCESSOR_ARCHITECTURE%==AMD64 ( set __ARCH=x64
 ) else ( set __ARCH=x86
 )
-if not exist "%SDL2_HOME%\lib\%__ARCH%\SDL2.dll" (
-    echo %_ERROR_LABEL% SDL2 installation not found 1>&2
+set _SDL_LIB_NAME=SDL2
+if not exist "%SDL2_HOME%\lib\%__ARCH%\%_SDL_LIB_NAME%.dll" (
+    echo %_ERROR_LABEL% %_SDL_LIB_NAME% installation not found 1>&2
     set _EXITCODE=1
     goto :eof
 )
-set "_SDL2_LIB_DIR=%SDL2_HOME%\lib\%__ARCH%"
-set "_SDL2_DLL_FILE=%_SDL2_LIB_DIR%\SDL2.dll"
+set "_SDL_INC_DIR=%SDL2_HOME%\include"
+set "_SDL_LIB_DIR=%SDL2_HOME%\lib\%__ARCH%"
+set "_SDL_DLL_FILE=%_SDL2_LIB_DIR%\%_SDL_LIB_NAME%.dll"
+
+@rem we use the newer PowerShell version if available
+where /q pwsh.exe
+if %ERRORLEVEL%==0 ( set _PWSH_CMD=pwsh.exe
+) else ( set _PWSH_CMD=powershell.exe
+)
 goto :eof
 
 :env_colors
@@ -237,8 +245,8 @@ if %__N%==0 (
 )
 set __ZIG_OPTS=-femit-bin="%_EXE_FILE%" -target x86_64-windows
 @rem we add the SDL2 dependency options
-set __ZIG_OPTS=%__ZIG_OPTS% -I"%SDL2_HOME%\include" -I"%ZIG_HOME%\lib\libc\include\any-windows-any"
-set __ZIG_OPTS=%__ZIG_OPTS% -L"%_SDL2_LIB_DIR%" -lSDL2
+set __ZIG_OPTS=%__ZIG_OPTS% -I"%_SDL_INC_DIR%" -I"%ZIG_HOME%\lib\libc\include\any-windows-any"
+set __ZIG_OPTS=%__ZIG_OPTS% -L"%_SDL_LIB_DIR%" -l%_SDL_LIB_NAME%
 
 if %_DEBUG%==1 ( echo %_DEBUG_LABEL% "%_ZIG_CMD%" build-exe %__ZIG_OPTS% %__SOURCE_FILES% 1>&2
 ) else if %_VERBOSE%==1 ( echo Compile %__N_FILES% to directory "!_TARGET_DIR:%_ROOT_DIR%=!" 1>&2
@@ -249,12 +257,12 @@ if not %ERRORLEVEL%==0 (
     set _EXITCODE=1
     goto :eof
 )
-if %_DEBUG%==1 ( echo %_DEBUG_LABEL% copy "%_SDL2_DLL_FILE%" "%_TARGET_DIR%\" 1>&2
-) else if %_VERBOSE%==1 ( echo Copy SDL2 dynamic library to directory "!_TARGET_DIR:%_ROOT_DIR%=!" 1>&2
+if %_DEBUG%==1 ( echo %_DEBUG_LABEL% copy "%_SDL_DLL_FILE%" "%_TARGET_DIR%\" 1>&2
+) else if %_VERBOSE%==1 ( echo Copy %_SDL_LIB_NAME% dynamic library to directory "!_TARGET_DIR:%_ROOT_DIR%=!" 1>&2
 )
-copy "%_SDL2_DLL_FILE%" "%_TARGET_DIR%\" %_STDOUT_REDIRECT%
+copy "%_SDL_DLL_FILE%" "%_TARGET_DIR%\" %_STDOUT_REDIRECT%
 if not %ERRORLEVEL%==0 (
-    echo %_ERROR_LABEL% Failed to copy SDL2 dynamic library to directory "!_TARGET_DIR:%_ROOT_DIR%=!" 1>&2
+    echo %_ERROR_LABEL% Failed to copy %_SDL_LIB_NAME% dynamic library to directory "!_TARGET_DIR:%_ROOT_DIR%=!" 1>&2
     set _EXITCODE=1
     goto :eof
 )
@@ -298,7 +306,7 @@ set __PATH_ARRAY=
 set __PATH_ARRAY1=
 :action_path
 shift
-set __PATH=%~1
+set "__PATH=%~1"
 if not defined __PATH goto action_next
 set __PATH_ARRAY=%__PATH_ARRAY%,'%__PATH%'
 set __PATH_ARRAY1=%__PATH_ARRAY1%,'!__PATH:%_ROOT_DIR%=!'
@@ -306,11 +314,11 @@ goto action_path
 
 :action_next
 set __TARGET_TIMESTAMP=00000000000000
-for /f "usebackq" %%i in (`powershell -c "gci -path '%__TARGET_FILE%' -ea Stop | select -last 1 -expandProperty LastWriteTime | Get-Date -uformat %%Y%%m%%d%%H%%M%%S" 2^>NUL`) do (
+for /f "usebackq" %%i in (`call "%_PWSH_CMD%" -c "gci -path '%__TARGET_FILE%' -ea Stop | select -last 1 -expandProperty LastWriteTime | Get-Date -uformat %%Y%%m%%d%%H%%M%%S" 2^>NUL`) do (
      set __TARGET_TIMESTAMP=%%i
 )
 set __SOURCE_TIMESTAMP=00000000000000
-for /f "usebackq" %%i in (`powershell -c "gci -recurse -path %__PATH_ARRAY:~1% -ea Stop | sort LastWriteTime | select -last 1 -expandProperty LastWriteTime | Get-Date -uformat %%Y%%m%%d%%H%%M%%S" 2^>NUL`) do (
+for /f "usebackq" %%i in (`call "%_PWSH_CMD%" -c "gci -recurse -path %__PATH_ARRAY:~1% -ea Stop | sort LastWriteTime | select -last 1 -expandProperty LastWriteTime | Get-Date -uformat %%Y%%m%%d%%H%%M%%S" 2^>NUL`) do (
     set __SOURCE_TIMESTAMP=%%i
 )
 call :newer %__SOURCE_TIMESTAMP% %__TARGET_TIMESTAMP%
@@ -320,10 +328,11 @@ if %_DEBUG%==1 (
     echo %_DEBUG_LABEL% %__SOURCE_TIMESTAMP% Sources: %__PATH_ARRAY:~1% 1>&2
     echo %_DEBUG_LABEL% _ACTION_REQUIRED=%_ACTION_REQUIRED% 1>&2
 ) else if %_VERBOSE%==1 if %_ACTION_REQUIRED%==0 if %__SOURCE_TIMESTAMP% gtr 0 (
-    echo No action required ^(%__PATH_ARRAY1:~1%^) 1>&2
+    echo No action required ^("%__PATH_ARRAY1:~1%"^) 1>&2
 )
 goto :eof
 
+@rem input parameters: %1=file timestamp 1, %2=file timestamp 2
 @rem output parameter: _NEWER
 :newer
 set __TIMESTAMP1=%~1

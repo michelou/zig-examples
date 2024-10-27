@@ -3,7 +3,7 @@
 <table style="font-family:Helvetica,Arial;line-height:1.6;">
   <tr>
   <td style="border:0;padding:0 10px 0 0;min-width:100px;"><a href="https://ziglang.org/"><img style="border:0;" src="../docs/images/zig-logo.svg" width="100" alt="Zig project"/></a></td>
-  <td style="border:0;padding:0;vertical-align:text-top;">Directory <strong><code>examples\</code></strong> contains <a href="https://ziglang.org//" alt="Spring">Spring</a> code examples coming from various websites - mostly from the <a href="https://ziglang.org/" rel="external">Zig</a> project.
+  <td style="border:0;padding:0;vertical-align:text-top;">Directory <strong><code>examples\</code></strong> contains <a href="https://ziglang.org//" alt="Zig">Zig</a> code examples coming from various websites - mostly from the <a href="https://ziglang.org/" rel="external">Zig</a> project.
   </td>
   </tr>
 </table>
@@ -58,38 +58,6 @@ Hello, world!
 > minimum os:           6.0 (Vista)
 > linkver:              14.0
 > </pre>
-
-<!--=======================================================================-->
-
-## <span id="hello-gamedev">`hello-gamedev` Example</span> [**&#x25B4;**](#top)
-
-This project has the following directory structure :
-
-<pre style="font-size:80%;">
-<b>&gt; <a href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/tree" rel="external">tree</a> /f /a . | <a href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/findstr" rel="exernal">findstr</a> /v /b [A-Z]</b>
-|   <a href="./hello-gamedev/00download.txt">00download.txt</a>
-|   <a href="./hello-gamedev/build.bat">build.bat</a>
-|   <a href="./hello-gamedev/build.sh">build.sh</a>
-|   <a href="./hello-gamedev/build.zig">build.zig</a>
-|   <a href="./hello-gamedev/Makefile">Makefile</a>
-\---<b>src</b>
-    \---<b>main</b>
-        \---<b>zig</b>
-                <a href="./hello-gamedev/src/main/zig/main.zig">main.zig</a>
-</pre>
-
-Command [**`build.bat`**](./hello-gamedev/build.bat)`-verbose clean run` generates and executes the Zig program `target\hello.exe`:
-
-<pre style="font-size:80%;">
-<b>&gt; <a href="./hello-gamedev/build.bat">build</a> -verbose clean run</b>
-Delete directory "target"
-Delete directory ".zig-cache"
-Compile 1 Zig source file to directory "target"
-Copy SDL2 dynamic library to directory "target"
-Execute Zig program "target\hello.exe"
-</pre>
-
-<p><img src="../docs/images/hello-gamedev.png" width="80%"></p>
 
 ***
 
