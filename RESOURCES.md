@@ -41,8 +41,9 @@
 - [Getting started with the Zig programming language](https://blog.logrocket.com/getting-started-zig-programming-language/) by Shalitha Suranga, August 2023.
 - [Problems of C, and how Zig addresses them][blog_ebrahimpour] by Aryan Ebrahimpour, June 2023.
 - [Dayvi Schuster's](https://dayvster.com/blog/) Blog posts :
-  - [Building Blocks Of Zig: slices](https://dayvster.com/blog/building-blocks-of-zig-slices/)
-  - [Zig Allocators Explained](https://dayvster.com/blog/zig-allocators-explained/)
+  - [Read Directory Contents With Zig](https://dayvster.com/blog/read-directory-contents-with-zig/), October 2024.
+  - [Building Blocks Of Zig: slices](https://dayvster.com/blog/building-blocks-of-zig-slices/), June 2024.
+  - [Zig Allocators Explained](https://dayvster.com/blog/zig-allocators-explained/), May 2024.
 - [Zig Interfaces for the Uninitiated, an update][blog_vounckx] by Kilian Vounckx, February 2022.
 - [Big Integers in Zig](https://tiehu.is/blog/zig2) by Marc Tiehuis, May 2018.
 - [Iterative Replacement of C with Zig](https://tiehu.is/blog/zig1) by Marc Tiehuis, July 2017.
@@ -51,6 +52,8 @@
 
 - [Zig News](https://ziglang.org/news/) &ndash; the official Zig news channel.
 - [Zig NEWS](https://zig.news/) &ndash; a community of [Zig] programmers.
+  - [Type-safe Tagged Pointers with comptime](https://zig.news/orgold/type-safe-tagged-pointers-with-comptime-ghi), September 2024.
+  - [Zig C/C++ Compiler](https://zig.news/edyu/zig-cc-compiler-wtf-is-zig-c-2lfk), July 2023.
   - [zig build explained - part 3](https://zig.news/xq/zig-build-explained-part-3-1ima), November 2021.
   - [zig build explained - part 2](https://zig.news/xq/zig-build-explained-part-2-1850), August 2021.
   - [zig build explained - part 1](https://zig.news/xq/zig-build-explained-part-1-59lf), July 2021.
@@ -82,6 +85,7 @@
 - [Zig Master](https://www.youtube.com/playlist?list=PLtB7CL7EG7pDKdSBA_AlNYrEsISOHBOQL) by Dude the Builder :
   - [Zig Master: Struct Layout](https://www.youtube.com/watch?v=sfvgUVAXZ4I), June 2024.
   - [Zig Master: Slices](https://www.youtube.com/watch?v=whjDH-LKA2s), May 2024.
+  - [Zig Master: Arrays](https://www.youtube.com/watch?v=wHx781zRKAQ), May 2024.
 
 - [Zig in Depth](https://www.youtube.com/playlist?list=PLtB7CL7EG7pCw7Xy1SQC53Gl8pI7aDg9t) by Dude the Builder :
   - [Zig in Depth: anytype](https://www.youtube.com/watch?v=-MKcxj3SlI0), November 2023.
@@ -107,7 +111,7 @@ version = "12"
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/October 2024* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/November 2024* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->

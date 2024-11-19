@@ -27,7 +27,7 @@ Optionally one may also install the following software:
 
 > **:mag_right:** Git for Windows provides a BASH emulation used to run [**`git`**][git_docs] from the command line (as well as over 250 Unix commands like [**`awk`**][man1_awk], [**`diff`**][man1_diff], [**`file`**][man1_file], [**`grep`**][man1_grep], [**`more`**][man1_more], [**`mv`**][man1_mv], [**`rmdir`**][man1_rmdir], [**`sed`**][man1_sed] and [**`wc`**][man1_wc]).
 
-For instance our development environment looks as follows (*October 2024*) <sup id="anchor_01">[1](#footnote_01)</sup>:
+For instance our development environment looks as follows (*November 2024*) <sup id="anchor_01">[1](#footnote_01)</sup>:
 
 <pre style="font-size:80%;">
 C:\opt\ConEmu\           <i>( 26 MB)</i>
@@ -83,7 +83,7 @@ We execute command [**`setenv.bat`**](setenv.bat) once to setup our development 
 <pre style="font-size:80%;">
 <b>&gt; <a href="setenv.bat">setenv</a></b>
 Tool versions:
-   zig 0.13.0, make 3.81, SDL2 2.30.8.0, SDL3 3.1.3.0,
+   zig 0.13.0, make 4.4.1, SDL2 2.30.9.0, SDL3 3.1.6.0,
    git 2.47.0, diff 3.10, bash 5.2.37(1)
 </pre>
 
@@ -99,17 +99,16 @@ Command [**`setenv.bat`**](setenv.bat) with option **`-verbose`** displays addit
 <pre style="font-size:80%;">
 <b>&gt; <a href="setenv.bat">setenv</a> -verbose</b>
 Tool versions:
-   zig 0.13.0, make 3.81, SDL2 2.30.8.0, SDL3 3.1.3.0,
+   zig 0.13.0, make 4.4.1, SDL2 2.30.9.0, SDL3 3.1.6.0,
    git 2.47.0, diff 3.10, bash 5.2.37(1)
 Tool paths:
    C:\opt\zig-0.13.0\zig.exe
-   C:\opt\make-3.81\bin\make.exe
+   C:\opt\msys64\usr\bin\make.exe
    C:\opt\Git\bin\git.exe
    C:\opt\Git\usr\bin\diff.exe
    C:\opt\Git\bin\bash.exe
 Environment variables:
    "GIT_HOME=C:\opt\Git"
-   "MAKE_HOME=C:\opt\make-3.81"
    "MSYS_HOME=C:\opt\msys64"
    "SDL2_HOME=C:\opt\sdl2"
    "SDL3_HOME=C:\opt\sdl3"
@@ -130,10 +129,10 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 <dd>
 <pre style="font-size:80%;">
 <a href="https://github.com/Maximus5/ConEmu/releases/tag/v23.07.24" rel="external">ConEmuPack.230724.7z</a>                              <i>(  5 MB)</i>
-<a href="https://git-scm.com/download/win" rel="external">PortableGit-2.47.0-64-bit.7z.exe</a>                  <i>( 41 MB)</i>
-<a href="https://github.com/libsdl-org/SDL/releases" rel="external">SDL2-devel-2.30.8-VC.zip </a>                         <i>(  6 MB)</i>
-<a href="https://github.com/libsdl-org/SDL/releases/tag/preview-3.1.3" rel="external">SDL3-devel-3.1.3-VC.zip </a>                          <i>( 13 MB)</i>
-<a href="https://code.visualstudio.com/Download#" rel="external">VSCode-win32-x64-1.94.2.zip</a>                       <i>(131 MB)</i>
+<a href="https://git-scm.com/download/win" rel="external">PortableGit-2.47.0.2-64-bit.7z.exe</a>                <i>( 41 MB)</i>
+<a href="https://github.com/libsdl-org/SDL/releases" rel="external">SDL2-devel-2.30.9-VC.zip </a>                         <i>(  6 MB)</i>
+<a href="https://github.com/libsdl-org/SDL/releases/tag/preview-3.1.6" rel="external">SDL3-devel-3.1.6-VC.zip </a>                          <i>( 13 MB)</i>
+<a href="https://code.visualstudio.com/Download#" rel="external">VSCode-win32-x64-1.95.2.zip</a>                       <i>(131 MB)</i>
 <a href="https://ziglang.org/download/" rel="external">zig-windows-x86_64-0.13.0.zip</a>                     <i>( 75 MB)</i>
 <a href="">zig-windows-x86_64-0.14.0-dev.2051+b1361f237.zip</a>  <i>( 80 MB)</i>
 </pre>
@@ -141,7 +140,7 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/October 2024* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/November 2024* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
@@ -181,8 +180,8 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 [nodejs_examples]: https://github.com/michelou/nodejs-examples#top
 [rust_examples]: https://github.com/michelou/rust-examples#top
 [sdl_downloads]: https://www.libsdl.org/
-[sdl2_relnotes]: https://github.com/libsdl-org/SDL/releases/tag/release-2.30.8
-[sdl3_relnotes]: https://github.com/libsdl-org/SDL/releases/tag/release-3.1.3
+[sdl2_relnotes]: https://github.com/libsdl-org/SDL/releases/tag/release-2.30.9
+[sdl3_relnotes]: https://github.com/libsdl-org/SDL/releases/tag/release-3.1.6
 [scala3_examples]: https://github.com/michelou/dotty-examples#top
 [spark_examples]: https://github.com/michelou/spark-examples#top
 [spring_examples]: https://github.com/michelou/spring-examples#top

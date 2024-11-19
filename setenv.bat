@@ -25,13 +25,15 @@ if %_HELP%==1 (
 
 set _GIT_PATH=
 set _MAKE_PATH=
+set _MSYS_PATH=
 set _ZIG_PATH=
 
 call :cmake
 if not %_EXITCODE%==0 goto end
 
-call :make
-if not %_EXITCODE%==0 goto end
+@rem we use %MSYS_HOME%\usr\bin\make.exe instead.
+@rem call :make
+@rem if not %_EXITCODE%==0 goto end
 
 call :msys
 if not %_EXITCODE%==0 goto end
@@ -302,9 +304,10 @@ if not exist "%_MAKE_HOME%\bin\make.exe" (
 set "_MAKE_PATH=;%_MAKE_HOME%\bin"
 goto :eof
 
-@rem output parameter: _MSYS_HOME
+@rem output parameter: _MSYS_HOME, _MSYS_PATH
 :msys
 set _MSYS_HOME=
+set _MSYS_PATH=
 
 set __GCC_CMD=
 for /f "delims=" %%f in ('where gcc.exe 2^>NUL') do set "__GCC_CMD=%%f"
@@ -325,12 +328,13 @@ if defined __GCC_CMD (
         for /f "delims=" %%f in ('dir /ad /b "!__PATH!\msys*" 2^>NUL') do set "_MSYS_HOME=!__PATH!\%%f"
     )
 )
-if not exist "%_MSYS_HOME%\mingw64\bin\gcc.exe" (
+if not exist "%_MSYS_HOME%\usr\bin\gcc.exe" (
     echo %_ERROR_LABEL% GNU C++ executable not found ^("%_MSYS_HOME%"^) 1>&2
     set _MSYS_HOME=
     set _EXITCODE=1
     goto :eof
 )
+set "_MSYS_PATH=;%_MSYS_HOME%\usr\bin"
 goto :eof
 
 @rem output_parameter: _SDL2_HOME
@@ -477,10 +481,10 @@ if %ERRORLEVEL%==0 (
     for /f "tokens=*" %%i in ('"%ZIG_HOME%\zig.exe" version') do set "__VERSIONS_LINE1=%__VERSIONS_LINE1% zig %%i,"
     set __WHERE_ARGS=%__WHERE_ARGS% "%ZIG_HOME%:zig.exe"
 )
-where /q "%MAKE_HOME%\bin:make.exe"
+where /q "%MSYS_HOME%\usr\bin:make.exe"
 if %ERRORLEVEL%==0 (
-    for /f "tokens=1,2,*" %%i in ('"%MAKE_HOME%\bin\make.exe" --version 2^>^&1 ^| findstr Make') do set "__VERSIONS_LINE1=%__VERSIONS_LINE1% make %%k,"
-    set __WHERE_ARGS=%__WHERE_ARGS% "%MAKE_HOME%\bin:make.exe"
+    for /f "tokens=1,2,*" %%i in ('"%MSYS_HOME%\usr\bin\make.exe" --version 2^>^&1 ^| findstr Make') do set "__VERSIONS_LINE1=%__VERSIONS_LINE1% make %%k,"
+    set __WHERE_ARGS=%__WHERE_ARGS% "%MSYS_HOME%\usr\bin:make.exe"
 )
 where /q "%CMAKE_HOME%\bin:cmake.exe"
 if %ERRORLEVEL%==0 (
@@ -533,7 +537,7 @@ if %__VERBOSE%==1 (
     echo Environment variables: 1>&2
     if defined CMAKE_HOME echo    "CMAKE_HOME=%CMAKE_HOME%" 1>&2
     if defined GIT_HOME echo    "GIT_HOME=%GIT_HOME%" 1>&2
-    if defined MAKE_HOME echo    "MAKE_HOME=%MAKE_HOME%" 1>&2
+    @rem if defined MAKE_HOME echo    "MAKE_HOME=%MAKE_HOME%" 1>&2
     if defined MSYS_HOME echo    "MSYS_HOME=%MSYS_HOME%" 1>&2
     if defined SDL2_HOME echo    "SDL2_HOME=%SDL2_HOME%" 1>&2
     if defined SDL3_HOME echo    "SDL3_HOME=%SDL3_HOME%" 1>&2
@@ -555,13 +559,13 @@ endlocal & (
     if %_EXITCODE%==0 (
         if not defined CMAKE_HOME set "CMAKE_HOME=%_CMAKE_HOME%"
         if not defined GIT_HOME set "GIT_HOME=%_GIT_HOME%"
-        if not defined MAKE_HOME set "MAKE_HOME=%_MAKE_HOME%"
+        @rem if not defined MAKE_HOME set "MAKE_HOME=%_MAKE_HOME%"
         if not defined MSYS_HOME set "MSYS_HOME=%_MSYS_HOME%"
         if not defined SDL2_HOME set "SDL2_HOME=%_SDL2_HOME%"
         if not defined SDL3_HOME set "SDL3_HOME=%_SDL3_HOME%"
         if not defined ZIG_HOME set "ZIG_HOME=%_ZIG_HOME%"
         @rem We prepend %_GIT_HOME%\bin to hide C:\Windows\System32\bash.exe
-        set "PATH=%GIT_HOME%\bin;%PATH%%_MAKE_PATH%%_GIT_PATH%%_ZIG_PATH%;%~dp0bin"
+        set "PATH=%GIT_HOME%\bin;%PATH%%_MSYS_PATH%%_GIT_PATH%%_ZIG_PATH%;%~dp0bin"
         call :print_env %_VERBOSE%
         if not "%CD:~0,2%"=="%_DRIVE_NAME%" (
             if %_DEBUG%==1 echo %_DEBUG_LABEL% cd /d %_DRIVE_NAME% 1>&2
