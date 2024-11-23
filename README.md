@@ -181,7 +181,7 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 [rust_examples]: https://github.com/michelou/rust-examples#top
 [sdl_downloads]: https://www.libsdl.org/
 [sdl2_relnotes]: https://github.com/libsdl-org/SDL/releases/tag/release-2.30.9
-[sdl3_relnotes]: https://github.com/libsdl-org/SDL/releases/tag/release-3.1.6
+[sdl3_relnotes]: https://github.com/libsdl-org/SDL/releases/tag/preview-3.1.6
 [scala3_examples]: https://github.com/michelou/dotty-examples#top
 [spark_examples]: https://github.com/michelou/spark-examples#top
 [spring_examples]: https://github.com/michelou/spring-examples#top
