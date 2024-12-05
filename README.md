@@ -129,10 +129,10 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 <dd>
 <pre style="font-size:80%;">
 <a href="https://github.com/Maximus5/ConEmu/releases/tag/v23.07.24" rel="external">ConEmuPack.230724.7z</a>                              <i>(  5 MB)</i>
-<a href="https://git-scm.com/download/win" rel="external">PortableGit-2.47.1.2-64-bit.7z.exe</a>                <i>( 41 MB)</i>
+<a href="https://git-scm.com/download/win" rel="external">PortableGit-2.47.1-64-bit.7z.exe</a>                  <i>( 41 MB)</i>
 <a href="https://github.com/libsdl-org/SDL/releases" rel="external">SDL2-devel-2.30.9-VC.zip </a>                         <i>(  6 MB)</i>
 <a href="https://github.com/libsdl-org/SDL/releases/tag/preview-3.1.6" rel="external">SDL3-devel-3.1.6-VC.zip </a>                          <i>( 13 MB)</i>
-<a href="https://code.visualstudio.com/Download#" rel="external">VSCode-win32-x64-1.95.2.zip</a>                       <i>(131 MB)</i>
+<a href="https://code.visualstudio.com/Download#" rel="external">VSCode-win32-x64-1.95.3.zip</a>                       <i>(131 MB)</i>
 <a href="https://ziglang.org/download/" rel="external">zig-windows-x86_64-0.13.0.zip</a>                     <i>( 75 MB)</i>
 <a href="">zig-windows-x86_64-0.14.0-dev.2051+b1361f237.zip</a>  <i>( 80 MB)</i>
 </pre>
@@ -181,7 +181,7 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 [rust_examples]: https://github.com/michelou/rust-examples#top
 [sdl_downloads]: https://www.libsdl.org/
 [sdl2_relnotes]: https://github.com/libsdl-org/SDL/releases/tag/release-2.30.9
-[sdl3_relnotes]: https://github.com/libsdl-org/SDL/releases/tag/release-3.1.6
+[sdl3_relnotes]: https://github.com/libsdl-org/SDL/releases/tag/preview-3.1.6
 [scala3_examples]: https://github.com/michelou/dotty-examples#top
 [spark_examples]: https://github.com/michelou/spark-examples#top
 [spring_examples]: https://github.com/michelou/spring-examples#top
