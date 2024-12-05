@@ -14,6 +14,7 @@
 ## <span id="blogs">Blogs</span> [**&#x25B4;**](#top)
 
 - [Hashimoto's](https://mitchellh.com/zig) Blog posts :
+  - [Tagged Union Subsets with Comptime in Zig](https://mitchellh.com/writing/zig-comptime-tagged-union-subset), September 2024.
   - [Conditionally Disabling Code with Comptime in Zig](https://mitchellh.com/writing/zig-comptime-conditional-disable), September 2024.
   - [Zig Build System Internals](https://mitchellh.com/zig/build-internals), February 2022.
 - [Dayvster](https://dayvster.com/blog/tag/zig/) Blog posts :
@@ -111,7 +112,7 @@ version = "12"
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/November 2024* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/December 2024* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->

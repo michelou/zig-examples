@@ -22,16 +22,16 @@ Optionally one may also install the following software:
 - [ConEmu 2023][conemu_downloads] ([*release notes*][conemu_relnotes])
 - [SDL 2][sdl_downloads] ([*release notes*][sdl2_relnotes])
 - [SDL 3][sdl_downloads] ([*release notes*][sdl3_relnotes])
-- [Visual Studio Code 1.94][vscode_downloads] ([*release notes*][vscode_relnotes])
+- [Visual Studio Code 1.95][vscode_downloads] ([*release notes*][vscode_relnotes])
 - [Zig 0.14 DEV][zig_downloads]
 
 > **:mag_right:** Git for Windows provides a BASH emulation used to run [**`git`**][git_docs] from the command line (as well as over 250 Unix commands like [**`awk`**][man1_awk], [**`diff`**][man1_diff], [**`file`**][man1_file], [**`grep`**][man1_grep], [**`more`**][man1_more], [**`mv`**][man1_mv], [**`rmdir`**][man1_rmdir], [**`sed`**][man1_sed] and [**`wc`**][man1_wc]).
 
-For instance our development environment looks as follows (*November 2024*) <sup id="anchor_01">[1](#footnote_01)</sup>:
+For instance our development environment looks as follows (*December 2024*) <sup id="anchor_01">[1](#footnote_01)</sup>:
 
 <pre style="font-size:80%;">
 C:\opt\ConEmu\           <i>( 26 MB)</i>
-C:\opt\Git\              <i>(367 MB)</i>
+C:\opt\Git\              <i>(393 MB)</i>
 C:\opt\SDL2\             <i>( 21 MB)</i>
 C:\opt\SDL3\             <i>( 49 MB)</i>
 C:\opt\zig-0.13.0\       <i>(293 MB)</i>
@@ -84,7 +84,7 @@ We execute command [**`setenv.bat`**](setenv.bat) once to setup our development 
 <b>&gt; <a href="setenv.bat">setenv</a></b>
 Tool versions:
    zig 0.13.0, make 4.4.1, SDL2 2.30.9.0, SDL3 3.1.6.0,
-   git 2.47.0, diff 3.10, bash 5.2.37(1)
+   git 2.47.1, diff 3.10, bash 5.2.37(1)
 </pre>
 
 ## <span id="usage_examples">Usage examples</span> [**&#x25B4;**](#top)
@@ -100,7 +100,7 @@ Command [**`setenv.bat`**](setenv.bat) with option **`-verbose`** displays addit
 <b>&gt; <a href="setenv.bat">setenv</a> -verbose</b>
 Tool versions:
    zig 0.13.0, make 4.4.1, SDL2 2.30.9.0, SDL3 3.1.6.0,
-   git 2.47.0, diff 3.10, bash 5.2.37(1)
+   git 2.47.1, diff 3.10, bash 5.2.37(1)
 Tool paths:
    C:\opt\zig-0.13.0\zig.exe
    C:\opt\msys64\usr\bin\make.exe
@@ -129,7 +129,7 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 <dd>
 <pre style="font-size:80%;">
 <a href="https://github.com/Maximus5/ConEmu/releases/tag/v23.07.24" rel="external">ConEmuPack.230724.7z</a>                              <i>(  5 MB)</i>
-<a href="https://git-scm.com/download/win" rel="external">PortableGit-2.47.0.2-64-bit.7z.exe</a>                <i>( 41 MB)</i>
+<a href="https://git-scm.com/download/win" rel="external">PortableGit-2.47.1.2-64-bit.7z.exe</a>                <i>( 41 MB)</i>
 <a href="https://github.com/libsdl-org/SDL/releases" rel="external">SDL2-devel-2.30.9-VC.zip </a>                         <i>(  6 MB)</i>
 <a href="https://github.com/libsdl-org/SDL/releases/tag/preview-3.1.6" rel="external">SDL3-devel-3.1.6-VC.zip </a>                          <i>( 13 MB)</i>
 <a href="https://code.visualstudio.com/Download#" rel="external">VSCode-win32-x64-1.95.2.zip</a>                       <i>(131 MB)</i>
@@ -140,7 +140,7 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/November 2024* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/December 2024* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
