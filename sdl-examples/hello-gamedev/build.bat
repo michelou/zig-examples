@@ -68,7 +68,7 @@ if not exist "%SDL2_HOME%\lib\%__ARCH%\%_SDL_LIB_NAME%.dll" (
 )
 set "_SDL_INC_DIR=%SDL2_HOME%\include"
 set "_SDL_LIB_DIR=%SDL2_HOME%\lib\%__ARCH%"
-set "_SDL_DLL_FILE=%_SDL2_LIB_DIR%\%_SDL_LIB_NAME%.dll"
+set "_SDL_DLL_FILE=%_SDL_LIB_DIR%\%_SDL_LIB_NAME%.dll"
 
 @rem we use the newer PowerShell version if available
 where /q pwsh.exe

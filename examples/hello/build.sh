@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Copyright (c) 2018-2024 Stéphane Micheloud
+# Copyright (c) 2018-2025 Stéphane Micheloud
 #
 # Licensed under the MIT License.
 #
@@ -138,7 +138,7 @@ compile() {
 mixed_path() {
     if [[ -x "$CYGPATH_CMD" ]]; then
         $CYGPATH_CMD -am "$*"
-    elif [[ $mingw -eq 1 ]] || [[ $msys -eq 1 ]]; then
+    elif [[ $(($mingw + $msys)) -gt 0 ]]; then
         echo "$*" | sed 's|/|\\\\|g'
     else
         echo "$*"
@@ -178,6 +178,8 @@ ROOT_DIR="$(getHome)"
 SOURCE_DIR="$ROOT_DIR/src"
 TARGET_DIR="$ROOT_DIR/build"
 
+## We refrain from using `true` and `false` which are Bash commands
+## (see https://man7.org/linux/man-pages/man1/false.1.html)
 CLEAN=0
 COMPILE=0
 DEBUG=0

@@ -34,6 +34,9 @@
   - [Thoughts on Zig](https://arne.me/blog/thoughts-on-zig), May 2024.
 - [Introduction to Zig, a Potential Heir to C][blog_eastman] by David Eastman, January 2024.
 - [After a day of programming in Zig](https://blog.lohr.dev/after-a-day-of-programming-in-zig) by Michael Lohr, December 2023.
+- [Michael Lynch's](https://mtlynch.io/posts/) Blog posts :
+  - [Why does an extraneous build step make my Zig app 10x faster?](https://mtlynch.io/zig-extraneous-build/), March 2024.
+  - [Using Zig to Call C Code: Strings](https://mtlynch.io/notes/zig-strings-call-c-code/), December 2023.
 - [Broch Blog &ndash; Programming](https://www.brochweb.com/blog/category/programming/) :
   - [Zig vs JavaScript][blog_white_js] by Asher White, October 2023.
   - [C# vs Zig][blog_white_csharp] by Asher White, October 2023.
@@ -45,6 +48,9 @@
   - [Read Directory Contents With Zig](https://dayvster.com/blog/read-directory-contents-with-zig/), October 2024.
   - [Building Blocks Of Zig: slices](https://dayvster.com/blog/building-blocks-of-zig-slices/), June 2024.
   - [Zig Allocators Explained](https://dayvster.com/blog/zig-allocators-explained/), May 2024.
+- [Nathan Craddock's](https://nathancraddock.com/#writing) Blog posts :
+  - [Some thoughts on Zig testing](https://nathancraddock.com/blog/thoughts-on-zig-test/), March 2023.
+  - [Zig naming conventions](https://nathancraddock.com/blog/zig-naming-conventions/), January 2022.
 - [Zig Interfaces for the Uninitiated, an update][blog_vounckx] by Kilian Vounckx, February 2022.
 - [Big Integers in Zig](https://tiehu.is/blog/zig2) by Marc Tiehuis, May 2018.
 - [Iterative Replacement of C with Zig](https://tiehu.is/blog/zig1) by Marc Tiehuis, July 2017.
@@ -67,6 +73,7 @@
 
 ## <span id="tools">Tools</span>
 
+- [Mach](https://machengine.org//) &ndash; a Zig game engine and graphics toolkit.
 - [Zap](https://zigzap.org/) &ndash; a blazingly fast and robust HTTP server (based on [facil.io](https://facil.io/)).
 - [`zig-clap`](https://github.com/Hejsil/zig-clap) &ndash; a comand line argument parsing library.
 - [`zigup`](https://github.com/marler8997/zigup) &ndash; download and manage [Zig] compilers.
@@ -76,6 +83,7 @@
 
 - [Learn Zig Programming Language](https://anylearn.ai/guide/51356f6b-e267-453d-be31-37efc233e882).
 - [Learning Zig](https://www.openmymind.net/learning_zig/).
+- [The Zig Standard Library](https://ratfactor.com/zig/stdlib-browseable2/index.html).
 - [Zig Cookbook](https://cookbook.ziglang.cc/intro.html).
 - [Zig Crash Course](https://ikrima.dev/dev-notes/zig/zig-crash-course/), May 2024.
 - [Zig Guide](https://zig.guide/) &ndash; Get up to speed with [Zig] quickly.
@@ -112,7 +120,7 @@ version = "12"
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/December 2024* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/January 2025* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
