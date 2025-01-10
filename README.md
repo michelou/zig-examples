@@ -49,7 +49,7 @@ This project is organized as follows:
 bin\*.bat
 docs\
 examples\{<a href="examples/README.md">README.md</a>, <a href="./examples/hello/">hello</a>}
-sdl-examples\{<a href="sdl-examples/README.md">README.md</a>, <a href="./dsl-examples/hello-gavedev/">hello-gamedev</a>, <a href="./dsl-examples/hello-gavedev-dsl3/">hello-gamedev-sdl3</a>}
+sdl-examples\{<a href="sdl-examples/README.md">README.md</a>, <a href="./sdl-examples/hello-gavedev/">hello-gamedev</a>, <a href="./sdl-examples/hello-gavedev-dsl3/">hello-gamedev-sdl3</a>}
 README.md
 <a href="RESOURCES.md">RESOURCES.md</a>
 <a href="setenv.bat">setenv.bat</a>
