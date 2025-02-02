@@ -17,6 +17,7 @@
   - [Tagged Union Subsets with Comptime in Zig](https://mitchellh.com/writing/zig-comptime-tagged-union-subset), September 2024.
   - [Conditionally Disabling Code with Comptime in Zig](https://mitchellh.com/writing/zig-comptime-conditional-disable), September 2024.
   - [Zig Build System Internals](https://mitchellh.com/zig/build-internals), February 2022.
+- [Solving the ‘Crazy’ Zig Literal Strings][blog_late] by Joana Borges Late, August 2024.
 - [Dayvster](https://dayvster.com/blog/tag/zig/) Blog posts :
   - [Builing Blocks of Zig: Unions](https://dayvster.com/blog/building-blocks-of-zig-unions/), June 2024.
   - [Building Block of Zig: Slices](https://dayvster.com/blog/building-blocks-of-zig-slices/), June 2024.
@@ -120,7 +121,7 @@ version = "12"
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/January 2025* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/February 2025* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
@@ -128,6 +129,7 @@ version = "12"
 [article_tyson]: https://www.infoworld.com/article/3689648/meet-the-zig-programming-language.html
 [blog_eastman]: https://thenewstack.io/introduction-to-zig-a-potential-heir-to-c/
 [blog_ebrahimpour]: https://avestura.dev/blog/problems-of-c-and-how-zig-addresses-them
+[blog_late]: https://medium.com/codex/solving-the-crazy-zig-literal-strings-f2f692ae500b
 [blog_vounckx]: https://zig.news/kilianvounckx/zig-interfaces-for-the-uninitiated-an-update-4gf1
 [blog_white_csharp]: https://www.brochweb.com/blog/post/csharp-vs-zig/
 [blog_white_js]: https://www.brochweb.com/blog/post/zig-vs-javascript/

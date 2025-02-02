@@ -27,6 +27,7 @@
 .metadata/
 .project
 .settings/
+.zig-cache/
 build/
 clibraries/
 llvm-*.src/

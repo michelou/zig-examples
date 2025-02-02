@@ -1,0 +1,1 @@
+Source: https://www.openmymind.net/learning_zig/pointers/#recursive_structures

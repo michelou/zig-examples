@@ -47,18 +47,18 @@ args() {
     for arg in "$@"; do
         case "$arg" in
         ## options
-        -debug)       DEBUG=1 ;;
-        -help)        HELP=1 ;;
-        -verbose)     VERBOSE=1 ;;
+        -debug)   DEBUG=1 ;;
+        -help)    HELP=1 ;;
+        -verbose) VERBOSE=1 ;;
         -*)
             error "Unknown option $arg"
             EXITCODE=1 && return 0
             ;;
         ## subcommands
-        clean)   CLEAN=1 ;;
-        compile) COMPILE=1 ;;
-        help)    HELP=1 ;;
-        run)     COMPILE=1 && RUN=1 ;;
+        clean)    CLEAN=1 ;;
+        compile)  COMPILE=1 ;;
+        help)     HELP=1 ;;
+        run)      COMPILE=1 && RUN=1 ;;
         *)
             error "Unknown subcommand $arg"
             EXITCODE=1 && return 0
@@ -195,10 +195,10 @@ mingw=0
 msys=0
 darwin=0
 case "$(uname -s)" in
-  CYGWIN*) cygwin=1 ;;
-  MINGW*)  mingw=1 ;;
-  MSYS*)   msys=1 ;;
-  Darwin*) darwin=1      
+    CYGWIN*) cygwin=1 ;;
+    MINGW*)  mingw=1 ;;
+    MSYS*)   msys=1 ;;
+    Darwin*) darwin=1      
 esac
 unset CYGPATH_CMD
 PSEP=":"

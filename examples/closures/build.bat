@@ -47,7 +47,7 @@ set "_SOURCE_MAIN_DIR=%_SOURCE_DIR%\main\zig"
 set "_TARGET_DIR=%_ROOT_DIR%target"
 set "_TARGET_DOCS_DIR=%_TARGET_DIR%\docs"
 
-set _MAIN_NAME=hello
+for /f "delims=" %%i in ("%~dp0.") do set "_MAIN_NAME=%%~ni"
 set "_EXE_FILE=%_TARGET_DIR%\%_MAIN_NAME%.exe"
 
 if not exist "%ZIG_HOME%\zig.exe" (
@@ -190,6 +190,7 @@ goto :eof
 
 :clean
 call :rmdir "%_TARGET_DIR%"
+call :rmdir "%_ROOT_DIR%build"
 call :rmdir "%_ROOT_DIR%zig-out"
 call :rmdir "%_ROOT_DIR%.zig-cache"
 goto :eof
@@ -230,6 +231,7 @@ if %__N%==0 (
 ) else ( set __N_FILES=%__N% Zig source files
 )
 set __ZIG_OPTS=-femit-bin="%_EXE_FILE%" -target x86_64-windows
+if %_DEBUG%==1 set __ZIG_OPTS=-freference-trace %__ZIG_OPTS%
 
 if %_DEBUG%==1 ( echo %_DEBUG_LABEL% "%_ZIG_CMD%" build-exe %__ZIG_OPTS% %__SOURCE_FILES% 1>&2
 ) else if %_VERBOSE%==1 ( echo Compile %__N_FILES% to directory "!_TARGET_DIR:%_ROOT_DIR%=!" 1>&2

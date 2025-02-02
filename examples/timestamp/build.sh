@@ -47,25 +47,25 @@ args() {
     for arg in "$@"; do
         case "$arg" in
         ## options
-        -debug)       DEBUG=1 ;;
-        -help)        HELP=1 ;;
-        -verbose)     VERBOSE=1 ;;
+        -debug)   DEBUG=1 ;;
+        -help)    HELP=1 ;;
+        -verbose) VERBOSE=1 ;;
         -*)
             error "Unknown option $arg"
             EXITCODE=1 && return 0
             ;;
         ## subcommands
-        clean)   CLEAN=1 ;;
-        compile) COMPILE=1 ;;
-        help)    HELP=1 ;;
-        run)     COMPILE=1 && RUN=1 ;;
+        clean)    CLEAN=1 ;;
+        compile)  COMPILE=1 ;;
+        help)     HELP=1 ;;
+        run)      COMPILE=1 && RUN=1 ;;
         *)
             error "Unknown subcommand $arg"
             EXITCODE=1 && return 0
             ;;
         esac
     done
-    debug "Options    : VERBOSE=$VERBOSE"
+    debug "Options    : PROJECT_CONFIG=$PROJECT_CONFIG TOOLSET=$TOOLSET VERBOSE=$VERBOSE"
     debug "Subcommands: CLEAN=$CLEAN COMPILE=$COMPILE HELP=$HELP RUN=$RUN"
     debug "Variables  : GIT_HOME=$GIT_HOME"
     debug "Variables  : ZIG_HOME=$ZIG_HOME"
@@ -95,6 +95,10 @@ clean() {
             echo "Delete directory \"${TARGET_DIR/$ROOT_DIR\//}\"" 1>&2
         fi
         rm -rf "$TARGET_DIR"
+        [[ $? -eq 0 ]] || ( EXITCODE=1 && return 0 )
+    fi
+    if [[ -d "$ROOT_DIR/build" ]]; then
+        rm -rf "$ROOT_DIR/build"
         [[ $? -eq 0 ]] || ( EXITCODE=1 && return 0 )
     fi
     if [[ -d "$ROOT_DIR/zig-out" ]]; then
@@ -195,10 +199,10 @@ mingw=0
 msys=0
 darwin=0
 case "$(uname -s)" in
-  CYGWIN*) cygwin=1 ;;
-  MINGW*)  mingw=1 ;;
-  MSYS*)   msys=1 ;;
-  Darwin*) darwin=1      
+    CYGWIN*) cygwin=1 ;;
+    MINGW*)  mingw=1 ;;
+    MSYS*)   msys=1 ;;
+    Darwin*) darwin=1      
 esac
 unset CYGPATH_CMD
 PSEP=":"
