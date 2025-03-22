@@ -61,7 +61,8 @@
 - [Zig News](https://ziglang.org/news/) &ndash; the official Zig news channel.
 - [Zig NEWS](https://zig.news/) &ndash; a community of [Zig] programmers.
   - [Type-safe Tagged Pointers with comptime](https://zig.news/orgold/type-safe-tagged-pointers-with-comptime-ghi), September 2024.
-  - [Zig C/C++ Compiler](https://zig.news/edyu/zig-cc-compiler-wtf-is-zig-c-2lfk), July 2023.
+  - [Closure Pattern in Zig](https://zig.news/houghtonap/closure-pattern-in-zig-19i3) by Andrew Houghton, May 2024.
+  - [Zig C/C++ Compiler](https://zig.news/edyu/zig-cc-compiler-wtf-is-zig-c-2lfk) by Ed Yu, July 2023.
   - [zig build explained - part 3](https://zig.news/xq/zig-build-explained-part-3-1ima), November 2021.
   - [zig build explained - part 2](https://zig.news/xq/zig-build-explained-part-2-1850), August 2021.
   - [zig build explained - part 1](https://zig.news/xq/zig-build-explained-part-1-59lf), July 2021.
@@ -69,7 +70,8 @@
 
 ## <span id="projects">Projects</span>
 
-- GitHub &ndash; [nrdmn/awesome-zig](https://github.com/nrdmn/awesome-zig).
+- GitHub [follgad/zig-ai](https://github.com/follgad/zig-ai) &ndash; a simple OpenAI API client for Zig with streaming support..
+- GitHub [nrdmn/awesome-zig](https://github.com/nrdmn/awesome-zig).
 - [Ziglings](https://codeberg.org/ziglings/exercises/) &ndash; Learn the ⚡Zig programming language by fixing tiny broken programs.
 
 ## <span id="tools">Tools</span>
@@ -102,6 +104,7 @@
   - [Zig in Depth: comptime Part II](https://www.youtube.com/watch?v=K4vsmDeK1pU), November 2023.
   - [Zig in Depth: comptime Part I](https://www.youtube.com/watch?v=7D__mR1nA2c), November 2023.
   - [Zig in Depth: Blocks and switch](https://www.youtube.com/watch?v=M3FSzLFIN30), October 2023.
+  - [Zig in Depth: Arrays](https://www.youtube.com/watch?v=BNmWK2rCjYw), October 2023.
   
 <!--
 ## <span id="footnotes">Footnotes</span>
@@ -121,7 +124,7 @@ version = "12"
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/February 2025* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/March 2025* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->

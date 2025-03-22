@@ -49,7 +49,7 @@ Hello, world!
 
 <!--=======================================================================-->
 
-## <span id="closures">`closures` Example</span>
+## <span id="closures">`closures` Example</span> [**&#x25B4;**](#top)
 
 This project has the following directory structure :
 
@@ -183,7 +183,7 @@ linkver:              14.0
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/February 2025* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/March 2025* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
