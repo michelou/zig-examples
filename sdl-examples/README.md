@@ -72,13 +72,41 @@ Execute Zig program "target\hello.exe"
 
 <!--=======================================================================-->
 
+## <span id="footnotes">Footnotes</span> <sup><sub>[**&#9650;**](#top)</sub></sup>
+
+<span id="footnote_01">[1]</span> ***Version of the SDL library*** [↩](#anchor_01)
+
+<dl><dd>
+Here is the output of the <code>pelook</code> command line tool :
+
+<pre style="font-size:80%;">
+<b>&gt; <a href="">pelook</a> %SDL2_HOME%\lib\x64\SDL2.dll | <a href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/findstr" rel="external">findstr</a> /c:"version number"</b>
+    version number:       2.32.10.0
+&nbsp;
+<b>&gt; pelook %SDL3_HOME%\lib\x64\SDL3.dll | <a href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/findstr" rel="external">findstr</a> /c:"version number"</b>
+    version number:       3.3.2.0
+</pre>
+
+PowerShell provides another way to get the version of the two SDL libraries :
+
+<pre style="font-size:80%;">
+<b>&gt; <a href="https://learn.microsoft.com/en-us/powershell/scripting/what-is-windows-powershell">pwsh</a> -c "(Get-Item %SDL2_HOME%\lib\x64\SDL2.dll).VersionInfo.ProductVersion</b>
+2, 32, 10, 0
+&nbsp;
+<b>&gt; <a href="https://learn.microsoft.com/en-us/powershell/scripting/what-is-windows-powershell">pwsh</a> -c "(Get-Item %SDL3_HOME%\lib\x64\SDL3.dll).VersionInfo.ProductVersion</b>
+3, 3, 2, 0
+
+</pre>
+
+</dd></dl>
+
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/March 2025* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/October 2025* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
 
 [pelook]: https://www.majorgeeks.com/files/details/pelook.html
-[sdl2_download]: https://github.com/libsdl-org/SDL/releases/tag/release-2.30.8
-[sdl3_download]: https://github.com/libsdl-org/SDL/releases/tag/preview-3.1.3
+[sdl2_download]: https://github.com/libsdl-org/SDL/releases/tag/release-2.32.10
+[sdl3_download]: https://github.com/libsdl-org/SDL/releases/tag/preview-3.3.2

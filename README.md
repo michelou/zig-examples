@@ -8,34 +8,34 @@
   </tr>
 </table>
 
-[Ada][ada_examples], [Akka][akka_examples], [C++][cpp_examples], [COBOL][cobol_examples], [Dafny][dafny_examples], [Dart][dart_examples], [Deno][deno_examples], [Docker][docker_examples], [Flix][flix_examples], [Go][golang_examples], [GraalVM][graalvm_examples], [Haskell][haskell_examples], [Kafka][kafka_examples], [Kotlin][kotlin_examples], [LLVM][llvm_examples], [Modula-2][m2_examples], [Node.js][nodejs_examples], [Rust][rust_examples], [Scala 3][scala3_examples], [Spark][spark_examples], [Spring][spring_examples], [Standard ML][sml_examples], [TruffleSqueak][trufflesqueak_examples] and [WiX Toolset][wix_examples] are other topics we are continuously monitoring.
+[Ada][ada_examples], [Akka][akka_examples], [C++][cpp_examples], [COBOL][cobol_examples], [Component Pascal][component_pascal_examples], [Dafny][dafny_examples], [Dart][dart_examples], [Deno][deno_examples], [Docker][docker_examples], [Flix][flix_examples], [Go][golang_examples], [GraalVM][graalvm_examples], [Haskell][haskell_examples], [Kafka][kafka_examples], [Kotlin][kotlin_examples], [LLVM][llvm_examples], [Modula-2][m2_examples], [Node.js][nodejs_examples], [Rust][rust_examples], [Scala 3][scala3_examples], [Spark][spark_examples], [Spring][spring_examples], [Standard ML][sml_examples], [TruffleSqueak][trufflesqueak_examples] and [WiX Toolset][wix_examples] are other topics we are continuously monitoring.
 
 ## <span id="proj_deps">Project dependencies</span>
 
 This project depends on two external software for the **Microsoft Windows** platform:
 
-- [Git 2.49][git_downloads] ([*release notes*][git_relnotes])
-- [Zig 0.14][zig_downloads] ([*release notes*][zig_relnotes])
+- [Git 2.51][git_downloads] ([*release notes*][git_relnotes])
+- [Zig 0.15][zig_downloads] ([*release notes*][zig_relnotes])
 
 Optionally one may also install the following software:
 
 - [ConEmu 2023][conemu_downloads] ([*release notes*][conemu_relnotes])
 - [SDL 2][sdl_downloads] ([*release notes*][sdl2_relnotes])
-- [SDL 3][sdl_downloads] ([*release notes*][sdl3_relnotes])
+- [SDL 3.3][sdl_downloads] ([*release notes*][sdl3_relnotes])
 - [Visual Studio Code 1.98][vscode_downloads] ([*release notes*][vscode_relnotes])
-- [Zig 0.15 DEV][zig_downloads]
+- [Zig 0.16 DEV][zig_downloads]
 
 > **:mag_right:** Git for Windows provides a BASH emulation used to run [**`git`**][git_docs] from the command line (as well as over 250 Unix commands like [**`awk`**][man1_awk], [**`diff`**][man1_diff], [**`file`**][man1_file], [**`grep`**][man1_grep], [**`more`**][man1_more], [**`mv`**][man1_mv], [**`rmdir`**][man1_rmdir], [**`sed`**][man1_sed] and [**`wc`**][man1_wc]).
 
-For instance our development environment looks as follows (*March 2025*) <sup id="anchor_01">[1](#footnote_01)</sup>:
+For instance our development environment looks as follows (*October 2025*) <sup id="anchor_01">[1](#footnote_01)</sup>:
 
 <pre style="font-size:80%;">
 C:\opt\ConEmu\           <i>( 26 MB)</i>
 C:\opt\Git\              <i>(393 MB)</i>
 C:\opt\SDL2\             <i>( 21 MB)</i>
 C:\opt\SDL3\             <i>( 49 MB)</i>
-C:\opt\zig-0.14.0\       <i>(293 MB)</i>
-C:\opt\zig-0.15.0-dev\   <i>(269 MB)</i>
+C:\opt\zig-0.15.2\       <i>(293 MB)</i>
+C:\opt\zig-0.16.0-dev\   <i>(269 MB)</i>
 C:\opt\VSCode\           <i>(371 MB)</i>
 </pre>
 
@@ -83,8 +83,8 @@ We execute command [**`setenv.bat`**](setenv.bat) once to setup our development 
 <pre style="font-size:80%;">
 <b>&gt; <a href="setenv.bat">setenv</a></b>
 Tool versions:
-   zig 0.14.0, make 4.4.1, SDL2 2.32.2.0, SDL3 3.2.8.0,
-   git 2.49.0, diff 3.11, bash 5.2.37(1)
+   zig 0.15.2, make 4.4.1, SDL2 2.32.10.0, SDL3 3.3.2.0,
+   git 2.51.1, diff 3.12, bash 5.2.37(1)
 </pre>
 
 ## <span id="usage_examples">Usage examples</span> [**&#x25B4;**](#top)
@@ -99,10 +99,10 @@ Command [**`setenv.bat`**](setenv.bat) with option **`-verbose`** displays addit
 <pre style="font-size:80%;">
 <b>&gt; <a href="setenv.bat">setenv</a> -verbose</b>
 Tool versions:
-   zig 0.14.0, make 4.4.1, SDL2 2.32.2.0, SDL3 3.2.8.0,
-   git 2.49.0, diff 3.11, bash 5.2.37(1)
+   zig 0.15.2, make 4.4.1, cmake 4.2.0-rc1, SDL2 2.32.10.0, SDL3 3.3.2.0,
+   git 2.51.1, diff 3.11, bash 5.2.37(1)
 Tool paths:
-   C:\opt\zig-0.14.0\zig.exe
+   C:\opt\zig-0.15.2\zig.exe
    C:\opt\msys64\usr\bin\make.exe
    C:\opt\Git\bin\git.exe
    C:\opt\Git\usr\bin\diff.exe
@@ -112,7 +112,7 @@ Environment variables:
    "MSYS_HOME=C:\opt\msys64"
    "SDL2_HOME=C:\opt\sdl2"
    "SDL3_HOME=C:\opt\sdl3"
-   "ZIG_HOME=C:\opt\zig-0.14.0"
+   "ZIG_HOME=C:\opt\zig-0.15.2"
 Path associations:
    H:\: => %USERPROFILE%\workspace-perso\zig-examples
 </pre>
@@ -129,18 +129,18 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 <dd>
 <pre style="font-size:80%;">
 <a href="https://github.com/Maximus5/ConEmu/releases/tag/v23.07.24" rel="external">ConEmuPack.230724.7z</a>                              <i>(  5 MB)</i>
-<a href="https://git-scm.com/download/win" rel="external">PortableGit-2.49.0-64-bit.7z.exe</a>                  <i>( 41 MB)</i>
-<a href="https://github.com/libsdl-org/SDL/releases" rel="external">SDL2-devel-2.32.2-VC.zip </a>                         <i>(  6 MB)</i>
-<a href="https://github.com/libsdl-org/SDL/releases/tag/preview-3.1.6" rel="external">SDL3-devel-3.2.8-VC.zip </a>                          <i>( 13 MB)</i>
+<a href="https://git-scm.com/download/win" rel="external">PortableGit-2.51.1-64-bit.7z.exe</a>                  <i>( 41 MB)</i>
+<a href="https://github.com/libsdl-org/SDL/releases/tag/release-2.32.10" rel="external">SDL2-devel-2.32.10-VC.zip </a>                        <i>(  6 MB)</i>
+<a href="https://github.com/libsdl-org/SDL/releases/tag/release-3.3.2" rel="external">SDL3-devel-3.3.2-VC.zip </a>                          <i>( 13 MB)</i>
 <a href="https://code.visualstudio.com/Download#" rel="external">VSCode-win32-x64-1.98.2.zip</a>                       <i>(131 MB)</i>
-<a href="https://ziglang.org/download/" rel="external">zig-windows-x86_64-0.14.0.zip</a>                     <i>( 75 MB)</i>
-<a href="https://ziglang.org/download/" rel="external">zig-windows-x86_64-0.15.0-dev.77+aa8aa6625.zip</a>    <i>( 79 MB)</i>
+<a href="https://ziglang.org/download/" rel="external">zig-windows-x86_64-0.15.2.zip</a>                     <i>( 75 MB)</i>
+<a href="https://ziglang.org/download/" rel="external">zig-x86_64-windows-0.16.0-dev.747+493ad58ff.zip</a>   <i>( 79 MB)</i>
 </pre>
 </dd></dl>
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/March 2025* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/October 2025* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
@@ -150,6 +150,7 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 [cobol_examples]: https://github.com/michelou/cobol-examples#top
 [conemu_downloads]: https://github.com/Maximus5/ConEmu/releases
 [conemu_relnotes]: https://conemu.github.io/blog/2023/07/24/Build-230724.html
+[component_pascal_examples]: https://github.com/michelou/component-pascal-examples#top
 [cpp_examples]: https://github.com/michelou/cpp-examples#top
 [dafny_examples]: https://github.com/michelou/dafny-examples#top
 [dart_examples]: https://github.com/michelou/dart-examples#top
@@ -159,7 +160,7 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 [git_docs]: https://git-scm.com/docs/git
 [git_downloads]: https://git-scm.com/download/win
 [github_markdown]: https://github.github.com/gfm/
-[git_relnotes]: https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.49.0.txt
+[git_relnotes]: https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.51.1.adoc
 [golang_examples]: https://github.com/michelou/golang-examples#top
 [graalvm_examples]: https://github.com/michelou/graalvm-examples#top
 [haskell_examples]: https://github.com/michelou/haskell-examples#top
@@ -195,5 +196,5 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 [wix_examples]: https://github.com/michelou/wix-examples#top
 [zig_downloads]: https://ziglang.org/download/
 [zig_lang]: https://ziglang.org/
-[zig_relnotes]: https://ziglang.org/download/0.14.0/release-notes.html
+[zig_relnotes]: https://ziglang.org/download/0.15.2/release-notes.html
 [zip_archive]: https://www.howtogeek.com/178146/
