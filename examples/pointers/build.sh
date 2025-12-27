@@ -113,7 +113,7 @@ compile() {
 
     local source_files=
     local n=0
-    for f in $(find "$SOURCE_DIR/" -type f -name "*.zig" 2>/dev/null); do
+    for f in $($FIND_CMD "$SOURCE_DIR/" -type f -name "*.zig" 2>/dev/null); do
         source_files="$source_files \"$(mixed_path $f)\""
         n=$((n + 1))
     done
@@ -208,10 +208,12 @@ if [[ $(($cygwin + $mingw + $msys)) -gt 0 ]]; then
 	PSEP=";"
     TARGET_EXT=".exe"
     CMAKE_CMD="$(mixed_path $CMAKE_HOME)/bin/cmake.exe"
+    FIND_CMD="$(mixed_path $MSYS_HOME)/usr/bin/find.exe"
     MAKE_CMD="$(mixed_path $MSYS_HOME)/usr/bin/make.exe"
     ZIG_CMD="$(mixed_path $ZIG_HOME)/zig.exe"
 else
     CMAKE_CMD=cmake
+    FIND_CMD=find
     MAKE_CMD=make
     ZIG_CMD=zig
 fi

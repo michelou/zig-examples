@@ -13,6 +13,8 @@
 
 ## <span id="blogs">Blogs</span> [**&#x25B4;**](#top)
 
+- [Rust vs. Zig: The New Programming Language Battle for Performance](https://dev.to/mukhilpadmanabhan/rust-vs-zig-the-new-programming-language-battle-for-performance-1p6) by Mukhil Padmanabhan, March 2025.
+
 - [Hashimoto's](https://mitchellh.com/zig) Blog posts :
   - [Tagged Union Subsets with Comptime in Zig](https://mitchellh.com/writing/zig-comptime-tagged-union-subset), September 2024.
   - [Conditionally Disabling Code with Comptime in Zig](https://mitchellh.com/writing/zig-comptime-conditional-disable), September 2024.
@@ -49,6 +51,7 @@
   - [Read Directory Contents With Zig](https://dayvster.com/blog/read-directory-contents-with-zig/), October 2024.
   - [Building Blocks Of Zig: slices](https://dayvster.com/blog/building-blocks-of-zig-slices/), June 2024.
   - [Zig Allocators Explained](https://dayvster.com/blog/zig-allocators-explained/), May 2024.
+- [Zero-cost bindings with Zig](https://ianjohnson.dev/posts/zero-cost-bindings-with-zig/) by Ian Johnson, May 2023.
 - [Nathan Craddock's](https://nathancraddock.com/#writing) Blog posts :
   - [Some thoughts on Zig testing](https://nathancraddock.com/blog/thoughts-on-zig-test/), March 2023.
   - [Zig naming conventions](https://nathancraddock.com/blog/zig-naming-conventions/), January 2022.
@@ -79,6 +82,7 @@
 - [Mach](https://machengine.org//) &ndash; a Zig game engine and graphics toolkit.
 - [Zap](https://zigzap.org/) &ndash; a blazingly fast and robust HTTP server (based on [facil.io](https://facil.io/)).
 - [`zig-clap`](https://github.com/Hejsil/zig-clap) &ndash; a comand line argument parsing library.
+- [`zigimg`](https://github.com/zigimg/zigimg) &ndash; [Zig] image library.
 - [`zigup`](https://github.com/marler8997/zigup) &ndash; download and manage [Zig] compilers.
 - [`zigwin32`](https://github.com/marlersoft/zigwin32) &ndash; Zig bindings for the Win32 API.
 
@@ -124,7 +128,7 @@ version = "12"
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/October 2025* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/December 2025* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
