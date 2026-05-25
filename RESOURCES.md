@@ -59,6 +59,12 @@
 - [Big Integers in Zig](https://tiehu.is/blog/zig2) by Marc Tiehuis, May 2018.
 - [Iterative Replacement of C with Zig](https://tiehu.is/blog/zig1) by Marc Tiehuis, July 2017.
 
+## <span id="books">Books</span>
+
+- [Introduction to Zig](https://pedropark99.github.io/zig-book/) by Pedro Duarte Faria , April 2026.
+
+<!--===========================================================-->
+
 ## <span id="news">News</span> [**&#x25B4;**](#top)
 
 - [Zig News](https://ziglang.org/news/) &ndash; the official Zig news channel.
@@ -128,7 +134,7 @@ version = "12"
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/December 2025* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/May 2026* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->

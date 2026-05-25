@@ -5,9 +5,14 @@ endif
 ifndef ZIG_HOME
 $(error Variable ZIG_HOME is not set)
 endif
+ifndef SDL2_HOME
+$(error Variable SDL2_HOME is not set)
+endif
 ifndef SDL3_HOME
 $(error Variable SDL3_HOME is not set)
 endif
+
+BUILD_TARGET = x86_64-windows
 
 TARGET_EXT  = .exe
 PSEP        = ;
@@ -21,6 +26,12 @@ TEST        = /usr/bin/test.exe
 TOUCH       = /usr/bin/touch.exe
 #
 ZIG         = $(subst \,/,$(ZIG_HOME))/zig.exe
+ZIG_INC_DIR = $(subst \,/,$(ZIG_HOME))/lib/libc/include
+#
+SDL2_LIB_NAME = SDL2
+SDL2_INC_DIR  = $(subst \,/,$(SDL2_HOME))/include
+SDL2_LIB_DIR  = $(subst \,/,$(SDL2_HOME))/lib/x64
+SDL2_LIB_FILE = $(SDL2_LIB_DIR)/$(SDL2_LIB_NAME).dll
 #
 SDL_LIB_NAME = SDL3
 SDL_INC_DIR  = $(subst \,/,$(SDL3_HOME))/include

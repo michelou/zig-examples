@@ -1,5 +1,5 @@
 ##
-## Copyright (c) 2018-2024 Stéphane Micheloud
+## Copyright (c) 2018-2026 Stéphane Micheloud
 ##
 ## Licensed under the MIT License.
 ##
@@ -25,7 +25,7 @@ build: $(TARGET)
 
 $(TARGET): $(SOURCES)
 	@$(TEST) -d "$(TARGET_DIR)" || "$(MKDIR)" -p "$(TARGET_DIR)"
-	"$(ZIG)" build-exe -femit-bin="$@" -target x86_64-windows -I"$(SDL_INC_DIR)" -I"$(SDL_INC_DIR)/$(SDL_LIB_NAME)" -I"$(ZIG_HOME)/lib/libc/include/any-windows-any" -L"$(SDL_LIB_DIR)" -l$(SDL_LIB_NAME) $^
+	"$(ZIG)" build-exe -femit-bin="$@" -target $(BUILD_TARGET) -I"$(SDL_INC_DIR)" -I"$(SDL_INC_DIR)/$(SDL_LIB_NAME)" -I"$(ZIG_INC_DIR)/any-windows-any" -L"$(SDL_LIB_DIR)" -l$(SDL_LIB_NAME) $^
 	"$(CP)" "$(SDL_LIB_FILE)" "$(TARGET_DIR)"
 
 clean:

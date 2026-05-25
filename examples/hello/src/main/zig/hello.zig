@@ -1,7 +1,6 @@
 const std = @import("std");
 
-pub fn main() !void {
-    //const stdout = std.io.getStdOut().writer();
-    //try stdout.print("Hello, {s}!\n", .{"world"});
-    try std.fs.File.stdout().writeAll("Hello, world!\n");
+pub fn main(init: std.process.Init) !void {
+    // See https://ziglang.org/documentation/0.16.0/#Hello-World
+    try std.Io.File.stdout().writeStreamingAll(init.io, "Hello, world!\n");
 }

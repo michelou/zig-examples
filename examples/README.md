@@ -42,7 +42,7 @@ Hello, world!
 
 <pre style="font-size:80%;">
 <b>&gt; <a href="">make</a> run</b>
-"C:/opt/zig-0.13.0/zig.exe" build-exe -femit-bin="target/hello.exe" src/main/zig/hello.zig
+"C:/opt/zig-0.16.0/zig.exe" build-exe -femit-bin="target/hello.exe" src/main/zig/hello.zig
 target/hello.exe
 Hello, world!
 </pre>
@@ -183,7 +183,7 @@ linkver:              14.0
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/December 2025* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/May 2026* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->

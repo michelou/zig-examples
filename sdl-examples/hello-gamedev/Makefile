@@ -1,5 +1,5 @@
 ##
-## Copyright (c) 2018-2024 Stéphane Micheloud
+## Copyright (c) 2018-2026 Stéphane Micheloud
 ##
 ## Licensed under the MIT License.
 ##
@@ -10,7 +10,7 @@ include ../Makefile.inc
 PROJECT_NAME ?= $(shell basename $(CURDIR))
 
 SOURCE_DIR = src
-TARGET_DIR = target
+TARGET_DIR = build
 TARGET_DOCS_DIR = $(TARGET_DIR)/docs
 
 ##############################################################################
@@ -25,7 +25,8 @@ build: $(TARGET)
 
 $(TARGET): $(SOURCES)
 	@$(TEST) -d "$(TARGET_DIR)" || "$(MKDIR)" -p "$(TARGET_DIR)"
-	"$(ZIG)" build-exe -femit-bin="$@" $^
+	"$(ZIG)" build-exe -femit-bin="$@" -target $(BUILD_TARGET) -I"$(SDL2_INC_DIR)" -I"$(ZIG_INC_DIR)/any-windows-any" -L"$(SDL2_LIB_DIR)" -l$(SDL2_LIB_NAME) $^
+	"$(CP)" "$(SDL2_LIB_FILE)" "$(TARGET_DIR)/"
 
 clean:
 	"$(RM)" -rf "$(TARGET_DIR)"
