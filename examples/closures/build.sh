@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Copyright (c) 2018-2025 Stéphane Micheloud
+# Copyright (c) 2018-2026 Stéphane Micheloud
 #
 # Licensed under the MIT License.
 #
@@ -57,6 +57,7 @@ args() {
         ## subcommands
         clean)    CLEAN=1 ;;
         compile)  COMPILE=1 ;;
+        doc)      DOC=1 ;;
         help)     HELP=1 ;;
         run)      COMPILE=1 && RUN=1 ;;
         *)
@@ -117,10 +118,12 @@ compile() {
 
     local source_files=
     local n=0
-    for f in $($FIND_CMD "$SOURCE_DIR/" -type f -name "*.zig" 2>/dev/null); do
+    for f in $(find "$SOURCE_DIR/" -type f -name "*.zig" 2>/dev/null); do
         source_files="$source_files \"$(mixed_path $f)\""
         n=$((n + 1))
     done
+    eval "which find"
+    echo "3333333333333333333"
     if [[ $n -eq 0 ]]; then
         warning "No Zig source file found"
         return 1
@@ -149,8 +152,37 @@ mixed_path() {
     fi
 }
 
-dump() {
-    echo "dump"
+doc() {
+    [[ -d "$TARGET_DOCS_DIR" ]] || mkdir -p "$TARGET_DOCS_DIR"
+    local zig_opts="-femit-docs=\"$(mixed_path $TARGET_DOCS_DIR)\""
+
+    local source_files=
+    local n=0
+    for f in $(find "$SOURCE_DIR/main/zig" -type f -name "*.zig" 2>/dev/null); do
+        source_files="$source_files \"$(mixed_path $f)\""
+        n=$((n + 1))
+    done
+    if [[ $n -eq 0 ]]; then
+        warning "No Zig source file found"
+        return 1
+    fi
+    local s=; [[ $n -gt 1 ]] && s="s"
+    local n_files="$n Zig source file$s"
+    if [[ $DEBUG -eq 1 ]]; then
+        debug "\"$ZIG_CMD\" $zig_opts $source_files"
+    elif [[ $VERBOSE -eq 1 ]]; then
+        echo "Compile $n_files to directory \"${TARGET_DIR/$ROOT_DIR\//}\"" 1>&2
+    fi
+    if [[ $DEBUG -eq 1 ]]; then
+        debug "\"$ZIG_CMD\" build-exe $zig_opts $source_files"
+    elif [[ $VERBOSE -eq 1 ]]; then
+        echo "Generate documentation into directory \"${TARGET_DOCS_DIR/$ROOT_DIR\//}\"" 1>&2
+    fi
+    eval "\"$ZIG_CMD\" build-exe $zig_opts $source_files"
+    if [[ $? -ne 0 ]]; then
+        error "Failed to generate documentation into directory \"${TARGET_DOCS_DIR/$ROOT_DIR\//}\""
+        cleanup 1
+    fi
 }
 
 run() {
@@ -181,12 +213,14 @@ ROOT_DIR="$(getHome)"
 
 SOURCE_DIR="$ROOT_DIR/src"
 TARGET_DIR="$ROOT_DIR/build"
+TARGET_DOCS_DIR="$TARGET_DIR/docs"
 
 ## We refrain from using `true` and `false` which are Bash commands
 ## (see https://man7.org/linux/man-pages/man1/false.1.html)
 CLEAN=0
 COMPILE=0
 DEBUG=0
+DOC=0
 HELP=0
 RUN=0
 VERBOSE=0
@@ -237,6 +271,9 @@ if [[ $CLEAN -eq 1 ]]; then
 fi
 if [[ $COMPILE -eq 1 ]]; then
     compile || cleanup 1
+fi
+if [[ $DOC -eq 1 ]]; then
+    doc || cleanup 1
 fi
 if [[ $RUN -eq 1 ]]; then
     run || cleanup 1

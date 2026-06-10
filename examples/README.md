@@ -15,6 +15,7 @@ This project has the following directory structure :
 <pre style="font-size:80%;">
 <b>&gt; <a href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/tree" rel="external">tree</a> /f /a . | <a href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/findstr" rel="external">findstr</a> /v /b [A-Z]</b>
 |   <a href="./hello/build.bat">build.bat</a>
+|   <a href="./hello/build.ps1">build.ps1</a>
 |   <a href="./hello/build.sh">build.sh</a>
 |   <a href="./hello/build.zig">build.zig</a>
 |   <a href="./hello/Makefile">Makefile</a>
@@ -57,6 +58,7 @@ This project has the following directory structure :
 <b>&gt; <a href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/tree">tree</a> /a /f . | <a href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/findstr">findstr</a> /v /b [A-Z]</b>
 |   <a href="./closures/00download.txt">00download.txt</a>
 |   <a href="./closures/build.bat">build.bat</a>
+|   <a href="./closures/build.ps1">build.ps1</a>
 |   <a href="./closures/build.sh">build.sh</a>
 |   <a href="./closures/build.zig">build.zig</a>
 |   <a href="./closures/Makefile">Makefile</a>
@@ -183,7 +185,7 @@ linkver:              14.0
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/May 2026* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/June 2026* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->

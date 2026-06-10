@@ -47,9 +47,9 @@ args() {
     for arg in "$@"; do
         case "$arg" in
         ## options
-        -debug)       DEBUG=1 ;;
-        -help)        HELP=1 ;;
-        -verbose)     VERBOSE=1 ;;
+        -debug)   DEBUG=1 ;;
+        -help)    HELP=1 ;;
+        -verbose) VERBOSE=1 ;;
         -*)
             error "Unknown option $arg"
             EXITCODE=1 && return 0
